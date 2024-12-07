@@ -5,30 +5,39 @@ export function Welcome({ message }: { message: string }) {
   return (
     <main className="flex items-center justify-center pt-16 pb-4">
       <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
-        <header className="flex flex-col items-center gap-9">
-          Joostvanos.nl
-        </header>
+
         <div className="max-w-[300px] w-full space-y-6 px-4">
-          <nav className="rounded-3xl border border-gray-200 p-6 dark:border-gray-700 space-y-4">
+          <nav className="rounded-3xl border border-gray-200 p-6 dark:border-gray-700 space-y-4 w-[500px]">
             <p className="leading-6 text-gray-700 dark:text-gray-200 text-center">
-              What&apos;s next?
+
+              Joost van Os Makelaardij & Mediation<br/>
+              Utrechtsedwarsstraat 46<br/>
+              1017 WG Amsterdam<br/>
+              <br/>
+              T:  <a href="tel:+31(0)206644511">+31(0)206644511</a> <br/>
+              M: <a href="tel:+31(0)622691573">+31(0)622691573</a> <br/>
+              @: <a href="mailto:makelaardij@joostvanos.nl">makelaardij@joostvanos.nl</a> <br/>
+              @: <a href="mailto:mediation@joostvanos.nl">mediation@joostvanos.nl</a> <br/>
+              W: joostvanos.nl<br/>
+              Li:<a href="https://www.linkedin.com/in/joost-van-os-912b2a8?utm">Linked-in</a>
+
             </p>
-            <ul>
-              {resources.map(({ href, text, icon }) => (
-                <li key={href}>
-                  <a
-                    className="group flex items-center gap-3 self-stretch p-3 leading-normal text-blue-700 hover:underline dark:text-blue-500"
-                    href={href}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {icon}
-                    {text}
-                  </a>
-                </li>
-              ))}
-              <li className="self-stretch p-3 leading-normal">{message}</li>
-            </ul>
+            {/*<ul>*/}
+            {/*  {resources.map(({ href, text, icon }) => (*/}
+            {/*    <li key={href}>*/}
+            {/*      <a*/}
+            {/*        className="group flex items-center gap-3 self-stretch p-3 leading-normal text-blue-700 hover:underline dark:text-blue-500"*/}
+            {/*        href={href}*/}
+            {/*        target="_blank"*/}
+            {/*        rel="noreferrer"*/}
+            {/*      >*/}
+            {/*        {icon}*/}
+            {/*        {text}*/}
+            {/*      </a>*/}
+            {/*    </li>*/}
+            {/*  ))}*/}
+            {/*  <li className="self-stretch p-3 leading-normal">{message}</li>*/}
+            {/*</ul>*/}
           </nav>
         </div>
       </div>
