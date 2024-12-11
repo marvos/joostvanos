@@ -6,7 +6,7 @@ export function Welcome({ message }: { message: string }) {
     <main className="flex items-center justify-center pt-16 pb-4">
       <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
         <div className="flex items-center justify-between w-full">
-          <svg xmlns="http://www.w3.org/2000/svg"  fill="none" className="logo-dark w-full px-8" viewBox="0 0 807 303">
+          <svg xmlns="http://www.w3.org/2000/svg"  fill="none" className="logo-dark w-full px-8 max-w-[500px] m-auto" viewBox="0 0 807 303">
             <path fill="#C39D88" stroke="#56443F" stroke-width="7"
                   d="M244.363 3.677H58.461C28.107 3.677 3.5 28.283 3.5 58.637V244.54c0 30.354 24.607 54.961 54.96 54.961h185.903c30.354 0 54.96-24.607 54.96-54.961V58.637c0-30.354-24.606-54.96-54.96-54.96Z"/>
             <path fill="#fff" stroke="#56443F" stroke-width="7"
