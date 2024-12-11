@@ -3,10 +3,13 @@ import logoLight from "./logo-light.svg";
 
 export function Welcome({ message }: { message: string }) {
   return (
-    <main className="flex items-center justify-center pt-16 pb-4">
-      <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
-        <div className="flex items-center justify-between w-full">
-          <svg xmlns="http://www.w3.org/2000/svg"  fill="none" className="logo-dark w-full px-8 max-w-[500px] m-auto" viewBox="0 0 807 303">
+    <main className="flex items-center justify-center pt-16 pb-4" style={{ minHeight: "100vh",
+      background: `url("/amsterdam-canal-houses1.jpg") no-repeat center/cover`,
+    }}>
+      <div className="flex-1 flex flex-col items-center p-8 gap-16 min-h-0 bg-mocha-50/80  shadow-md rounded-xl max-w-[500px] m-auto">
+        <div className="flex items-center justify-between w-full ">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" className="logo-dark w-full max-w-[500px] m-auto"
+               viewBox="0 0 807 303">
             <path fill="#C39D88" stroke="#56443F" stroke-width="7"
                   d="M244.363 3.677H58.461C28.107 3.677 3.5 28.283 3.5 58.637V244.54c0 30.354 24.607 54.961 54.96 54.961h185.903c30.354 0 54.96-24.607 54.96-54.961V58.637c0-30.354-24.606-54.96-54.96-54.96Z"/>
             <path fill="#fff" stroke="#56443F" stroke-width="7"
@@ -24,15 +27,59 @@ export function Welcome({ message }: { message: string }) {
 
               Utrechtsedwarsstraat 46<br/>
               1017 WG Amsterdam<br/>
-              <br/>
-              T: <a href="tel:+31(0)206644511">+31(0)206644511</a> <br/>
-              M: <a href="tel:+31(0)622691573">+31(0)622691573</a> <br/>
-              @: <a href="mailto:makelaardij@joostvanos.nl">makelaardij@joostvanos.nl</a> <br/>
-              @: <a href="mailto:mediation@joostvanos.nl">mediation@joostvanos.nl</a> <br/>
-              W: joostvanos.nl<br/>
-              Li:<a href="https://www.linkedin.com/in/joost-van-os-912b2a8?utm">Linked-in</a>
-
             </p>
+            <div className="flex items-center justify-center gap-4 w-full">
+              <a href="tel:+31(0)206644511" className="btn btn-secondary ">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                     className="inline-block ">
+                  <g clip-path="url(#a)">
+                    <path fill="currentColor"
+                          d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 0 0-1.02.24l-2.2 2.2a15.045 15.045 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1A11.36 11.36 0 0 1 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1ZM21 6h-3V3h-2v3h-3v2h3v3h2V8h3V6Z"/>
+                  </g>
+
+                </svg>
+                020 6644511</a>
+              <a href="tel:+31(0)622691573" className="btn btn-secondary ">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor">
+                  <g clip-path="url(#a)">
+                    <path fill="currentColor"
+                          d="M17 1.01 7 1c-1.1 0-1.99.9-1.99 2v18c0 1.1.89 2 1.99 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99ZM17 19H7V5h10v14Z"/>
+                  </g>
+
+                </svg>
+                0622 691573</a>
+            </div>
+
+            <div className="flex flex-col gap-4  items-center justify-center w-full">
+              <a href="mailto:makelaardij@joostvanos.nl"
+                 className="btn btn-primary">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_17_19831)">
+                    <path
+                        d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22H17V20H12C7.66 20 4 16.34 4 12C4 7.66 7.66 4 12 4C16.34 4 20 7.66 20 12V13.43C20 14.22 19.29 15 18.5 15C17.71 15 17 14.22 17 13.43V12C17 9.24 14.76 7 12 7C9.24 7 7 9.24 7 12C7 14.76 9.24 17 12 17C13.38 17 14.64 16.44 15.54 15.53C16.19 16.42 17.31 17 18.5 17C20.47 17 22 15.4 22 13.43V12C22 6.48 17.52 2 12 2ZM12 15C10.34 15 9 13.66 9 12C9 10.34 10.34 9 12 9C13.66 9 15 10.34 15 12C15 13.66 13.66 15 12 15Z"
+                        fill="currentColor"/>
+                  </g>
+
+                </svg>
+
+
+                makelaardij@joostvanos.nl</a>
+              <a href="mailto:mediation@joostvanos.nl"
+                 className="btn btn-primary">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_17_19831)">
+                    <path
+                        d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22H17V20H12C7.66 20 4 16.34 4 12C4 7.66 7.66 4 12 4C16.34 4 20 7.66 20 12V13.43C20 14.22 19.29 15 18.5 15C17.71 15 17 14.22 17 13.43V12C17 9.24 14.76 7 12 7C9.24 7 7 9.24 7 12C7 14.76 9.24 17 12 17C13.38 17 14.64 16.44 15.54 15.53C16.19 16.42 17.31 17 18.5 17C20.47 17 22 15.4 22 13.43V12C22 6.48 17.52 2 12 2ZM12 15C10.34 15 9 13.66 9 12C9 10.34 10.34 9 12 9C13.66 9 15 10.34 15 12C15 13.66 13.66 15 12 15Z"
+                        fill="currentColor"/>
+                  </g>
+
+                </svg>
+                mediation@joostvanos.nl</a>
+
+
+            </div>
+
+
             {/*<ul>*/}
             {/*  {resources.map(({ href, text, icon }) => (*/}
             {/*    <li key={href}>*/}
@@ -50,7 +97,10 @@ export function Welcome({ message }: { message: string }) {
             {/*  <li className="self-stretch p-3 leading-normal">{message}</li>*/}
             {/*</ul>*/}
           </nav>
+
         </div>
+        <a href="https://www.linkedin.com/in/joost-van-os-912b2a8"
+           className=" "><img src="LI-In-Bug.png" className="w-12 m-auto"/></a>
       </div>
     </main>
   );
