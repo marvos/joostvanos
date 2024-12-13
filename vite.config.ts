@@ -6,6 +6,9 @@ import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig(({ isSsrBuild }) => ({
+  server: {
+    port: 5176,
+  },
   build: {
     rollupOptions: isSsrBuild
       ? {
