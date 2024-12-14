@@ -3,3 +3,8 @@ name = "joostvanos-nl"
 compatibility_date = "2024-11-18"
 main = "./build/server/index.js"
 assets = { directory = "./build/client/" }
+
+[env.preview.vars]
+ENV_FROM_CLOUDFLARE = "preview"
+[env.production.vars]
+ENV_FROM_CLOUDFLARE = "production"
