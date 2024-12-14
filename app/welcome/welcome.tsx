@@ -8,7 +8,7 @@ export function Welcome({ message }: { message: string }) {
       className="flex lg:items-center lg:justify-center lg:pt-16  bg-mocha-50/80 "
       style={{
         minHeight: "100vh",
-        background: `url("/amsterdam-canal-houses1.jpg") no-repeat center/cover`,
+        background: `url("/canals.webp") no-repeat center/cover`,
       }}
     >
       {/*<div*/}
