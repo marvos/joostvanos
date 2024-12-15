@@ -18,7 +18,7 @@ export async function loader({ request, context }: Route.LoaderArgs) {
   //   url: "wonen/v3/objecten?actief=true&aantal=100",
   //   method: "GET",
   // });
-  const response = await fetch("https://api.ipify.org?format=json");
+  const response = await fetch("https://ipinfo.io/json?token=49ec06c5952f55");
   const data = await response.json();
   console.log(data);
   // return { objecten: huizen.resultaten };
