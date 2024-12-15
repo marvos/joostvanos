@@ -12,17 +12,17 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export async function loader({ request, context }: Route.LoaderArgs) {
-  // const huizen: Objecten = await useFetch({
-  //   request,
-  //   context,
-  //   url: "wonen/v3/objecten?actief=true&aantal=100",
-  //   method: "GET",
-  // });
+  const huizen: Objecten = await useFetch({
+    request,
+    context,
+    url: "wonen/v3/objecten?actief=true&aantal=100",
+    method: "GET",
+  });
   const response = await fetch("https://ipinfo.io/json?token=49ec06c5952f55");
   const data = await response.json();
   console.log(data);
   // return { objecten: huizen.resultaten };
-  return { objecten: [], ipify: data };
+  return { objecten: huizen.resultaten, ipify: data };
 }
 
 export default function Aanbod({ loaderData }: Route.ComponentProps) {
