@@ -12,12 +12,12 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export async function loader({ request, context }: Route.LoaderArgs) {
-  // const huizen: Objecten = await useFetch({
-  //   request,
-  //   context,
-  //   url: "wonen/v3/objecten?actief=true&aantal=100",
-  //   method: "GET",
-  // });
+  const huizen: Objecten = await useFetch({
+    request,
+    context,
+    url: "wonen/v3/objecten?actief=true&aantal=100",
+    method: "GET",
+  });
   // const huizen: Objecten = await useFetch({
   //   request,
   //   context,
@@ -28,8 +28,8 @@ export async function loader({ request, context }: Route.LoaderArgs) {
   const data = await response.json();
   console.log(data);
   // return { objecten: huizen.resultaten };
-  // return { objecten: huizen.resultaten, ipify: data };
-  return { objecten: [], ipify: data };
+  return { objecten: huizen.resultaten, ipify: data };
+  // return { objecten: [], ipify: data };
 }
 export default function Aanbod({ loaderData }: Route.ComponentProps) {
   console.log(loaderData?.objecten);
