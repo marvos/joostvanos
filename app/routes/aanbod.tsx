@@ -11,7 +11,7 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-export async function clientLoader({ serverLoader }) {
+export async function clientLoader() {
   const huizen: Objecten = await useFetch({
     url: "wonen/v3/objecten?actief=true&aantal=100",
     method: "GET",
