@@ -12,21 +12,25 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export async function loader({ request, context }: Route.LoaderArgs) {
-  const huizen: Objecten = await useFetch({
-    request,
-    context,
-    url: "wonen/v3/objecten?actief=true&aantal=100",
-    method: "GET",
-  });
-
-  return { objecten: huizen.resultaten };
+  // const huizen: Objecten = await useFetch({
+  //   request,
+  //   context,
+  //   url: "wonen/v3/objecten?actief=true&aantal=100",
+  //   method: "GET",
+  // });
+  const response = await fetch("https://api.ipify.org?format=json");
+  const data = await response.json();
+  console.log(data);
+  // return { objecten: huizen.resultaten };
+  return { objecten: [], ipify: data };
 }
 
 export default function Aanbod({ loaderData }: Route.ComponentProps) {
   console.log(loaderData.objecten);
+  console.log(loaderData.ipify);
   return (
     <>
-      <h1 className="text-4xl m-auto py-14">Aanbod</h1>
+      <h1 className="text-4xl m-auto py-14">Aanbod {loaderData?.ipify?.ip}</h1>
       <div className="flex gap-7 flex-wrap ">
         {loaderData?.objecten.map((huis) => (
           <div className="card   w-96 shadow-xl" key={huis.id}>
