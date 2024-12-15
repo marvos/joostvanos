@@ -12,12 +12,12 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export async function loader({ request, context }: Route.LoaderArgs) {
-  const huizen: Objecten = await useFetch({
-    request,
-    context,
-    url: "wonen/v3/objecten?actief=true&aantal=100",
-    method: "GET",
-  });
+  // const huizen: Objecten = await useFetch({
+  //   request,
+  //   context,
+  //   url: "wonen/v3/objecten?actief=true&aantal=100",
+  //   method: "GET",
+  // });
   // const huizen: Objecten = await useFetch({
   //   request,
   //   context,
