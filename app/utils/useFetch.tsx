@@ -1,10 +1,4 @@
-export const useFetch = async ({
-  request,
-  context,
-  url,
-  method,
-  body,
-}: any): Promise<any> => {
+export const useFetch = async ({ url, method, body }: any): Promise<any> => {
   if (body) {
     body = JSON.stringify(body);
   }
