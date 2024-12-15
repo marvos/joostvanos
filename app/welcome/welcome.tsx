@@ -1,8 +1,7 @@
 import logoDark from "./logo-dark.svg";
 import logoLight from "./logo-light.svg";
 
-export function Welcome({ message }: { message: string }) {
-  console.log(message);
+export function Welcome() {
   return (
     <main
       className="flex lg:items-center lg:justify-center lg:pt-16  bg-mocha-50/80 "
