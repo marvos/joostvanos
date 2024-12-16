@@ -8,3 +8,8 @@ assets = { directory = "./build/client/" }
 ENV_FROM_CLOUDFLARE = "preview"
 [env.production.vars]
 ENV_FROM_CLOUDFLARE = "production"
+
+
+# wrangler.toml (wrangler v3.88.0^)
+[observability.logs]
+enabled = true
