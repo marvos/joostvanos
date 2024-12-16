@@ -20,13 +20,19 @@ export interface Root {
   postal: string;
   timezone: string;
 }
-export async function loader({ request, context }: Route.LoaderArgs) {
+// export async function loader({ request, context }: Route.LoaderArgs) {
+//   const response = await fetch("https://ipinfo.io/json?token=49ec06c5952f55");
+//   const data: Root = await response.json();
+//   return { ipify: data };
+// }
+export async function clientLoader({ request, context }: Route.LoaderArgs) {
   const response = await fetch("https://ipinfo.io/json?token=49ec06c5952f55");
   const data: Root = await response.json();
   return { ipify: data };
 }
 export default function Ip({ loaderData }: Route.ComponentProps) {
   console.log(loaderData?.ipify);
+
   return (
     <>
       <h1 className="text-4xl">IP {loaderData?.ipify?.ip}</h1>

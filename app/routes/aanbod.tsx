@@ -11,17 +11,30 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-export async function loader({ request, context }: Route.LoaderArgs) {
+// export async function loader({ request, context }: Route.LoaderArgs) {
+//   const huizen: Objecten = await useFetch({
+//     request,
+//     context,
+//     url: "wonen/v3/objecten?actief=true&aantal=100",
+//     method: "GET",
+//   });
+//
+//   return { objecten: huizen.resultaten };
+// }
+
+export async function clientLoader({ request, context }: Route.LoaderArgs) {
   const huizen: Objecten = await useFetch({
     request,
     context,
     url: "wonen/v3/objecten?actief=true&aantal=100",
     method: "GET",
   });
-
+  console.log(huizen);
   return { objecten: huizen.resultaten };
 }
+
 export default function Aanbod({ loaderData }: Route.ComponentProps) {
+  console.log(loaderData?.objecten);
   console.log(loaderData?.objecten);
 
   return (
