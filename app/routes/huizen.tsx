@@ -1,4 +1,4 @@
-import type { Route } from "./+types/aanbod";
+import type { Route } from "./+types/huizen";
 
 import { useFetch } from "~/utils/useFetch";
 import type { Objecten } from "~/utils/object-types";
