@@ -10,5 +10,6 @@ export default [
   layout("layouts/main.tsx", [
     route("styleguide", "routes/styleguide.tsx"),
     route("aanbod", "routes/aanbod.tsx"),
+    route("ip", "routes/ip.tsx"),
   ]),
 ] satisfies RouteConfig;
