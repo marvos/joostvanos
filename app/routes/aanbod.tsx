@@ -12,31 +12,21 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export async function loader({ request, context }: Route.LoaderArgs) {
-  // const huizen: Objecten = await useFetch({
-  //   request,
-  //   context,
-  //   url: "wonen/v3/objecten?actief=true&aantal=100",
-  //   method: "GET",
-  // });
-  // const huizen: Objecten = await useFetch({
-  //   request,
-  //   context,
-  //   url: "wonen/v3/objecten?actief=true&aantal=100",
-  //   method: "GET",
-  // });
-  const response = await fetch("https://ipinfo.io/json?token=49ec06c5952f55");
-  const data = await response.json();
-  console.log(data);
-  // return { objecten: huizen.resultaten };
-  // return { objecten: huizen.resultaten, ipify: data };
-  return { objecten: [], ipify: data };
+  const huizen: Objecten = await useFetch({
+    request,
+    context,
+    url: "wonen/v3/objecten?actief=true&aantal=100",
+    method: "GET",
+  });
+
+  return { objecten: huizen.resultaten };
 }
 export default function Aanbod({ loaderData }: Route.ComponentProps) {
   console.log(loaderData?.objecten);
-  console.log(loaderData?.ipify);
+
   return (
     <>
-      <h1 className="text-4xl m-auto py-14">Aanbod {loaderData?.ipify?.ip}</h1>
+      <h1 className="text-4xl m-auto py-14">Aanbod</h1>
       <div className="flex gap-7 flex-wrap ">
         {loaderData?.objecten.map((huis) => (
           <div className="card   w-96 shadow-xl" key={huis.id}>
