@@ -1,5 +1,5 @@
 import { createRequestHandler } from "react-router";
-import "../worker-configuration"
+// import "../worker-configuration"
 interface Env {
   VALUE_FROM_CLOUDFLARE: string;
   API_JOOST: string;
