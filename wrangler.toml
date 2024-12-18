@@ -4,12 +4,18 @@ compatibility_date = "2024-11-18"
 main = "./build/server/index.js"
 assets = { directory = "./build/client/" }
 
-[env.preview.vars]
-ENV_FROM_CLOUDFLARE = "preview"
-[env.production.vars]
-ENV_FROM_CLOUDFLARE = "production"
 
-
+[vars]
+API_REALWORKS_URL="https://api.realworks.nl"
+API_JOOST="https://api.joostvanos.nl"
+VALUE_FROM_CLOUDFLARE = "Hello from Cloudflare WRANGLER"
 # wrangler.toml (wrangler v3.88.0^)
 [observability.logs]
 enabled = true
+
+
+
+[[kv_namespaces]]
+binding = "OBJECTEN"
+id = "8a23e584c3f74a3e87f3af5a15d8fdf5"
+preview_id ="a88f0c640c1547369430258ff0562d64"

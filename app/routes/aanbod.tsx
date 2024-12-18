@@ -1,7 +1,7 @@
 import type { Route } from "./+types/aanbod";
 
 import { useFetch } from "~/utils/useFetch";
-import type { Objecten } from "~/utils/object-types";
+import type { Objecten, Resultaten } from "~/utils/object-types";
 import { Link } from "react-router";
 
 export function meta({}: Route.MetaArgs) {
@@ -11,37 +11,28 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-// export async function loader({ request, context }: Route.LoaderArgs) {
-//   const huizen: Objecten = await useFetch({
-//     request,
-//     context,
-//     url: "wonen/v3/objecten?actief=true&aantal=100",
-//     method: "GET",
-//   });
-//
-//   return { objecten: huizen.resultaten };
-// }
-
-export async function clientLoader({ request, context }: Route.LoaderArgs) {
-  const huizen: Objecten = await useFetch({
-    request,
-    context,
-    url: "wonen/v3/objecten?actief=true&aantal=100",
-    method: "GET",
-  });
-  console.log(huizen);
-  return { objecten: huizen.resultaten };
+export async function loader({ request, context }: Route.LoaderArgs) {
+const objecten: Objecten = await context.cloudflare.env.OBJECTEN.get('huizen')
+console.log(objecten);
+//   const objecten: Objecten = await useFetch({
+//   request,
+//   context,
+//   url: `${context.cloudflare.env.API_JOOST}/kv/values/huizen`,
+//   method: "GET",
+// });
+// console.log(objecten.resultaten);
+return {resultaten: objecten.resultaten};
 }
 
+
 export default function Aanbod({ loaderData }: Route.ComponentProps) {
-  console.log(loaderData?.objecten);
-  console.log(loaderData?.objecten);
+  // console.log(loaderData.resultaten);
 
   return (
     <>
       <h1 className="text-4xl m-auto py-14">Aanbod</h1>
       <div className="flex gap-7 flex-wrap ">
-        {loaderData?.objecten.map((huis) => (
+        {loaderData?.resultaten?.map((huis) => (
           <div className="card   w-96 shadow-xl" key={huis.id}>
             <figure>
               <img
