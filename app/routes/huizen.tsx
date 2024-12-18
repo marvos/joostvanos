@@ -11,7 +11,7 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-export async function loader({ request, context }: Route.LoaderArgs) {
+export async function clientLoader({ request, context }: Route.LoaderArgs) {
   const huizen: Objecten = await useFetchRealWorks({
     request,
     context,
@@ -47,7 +47,7 @@ export default function Aanbod({ loaderData }: Route.ComponentProps) {
       <h1 className="text-4xl m-auto py-14">Submit relaworks data</h1>
       <div className="flex gap-7 flex-wrap ">
         <Form className="w-full" method="post">
-        <input className="textarea bg-mocha-800 text-white w-full"  cols={10} rows={20} name="realworksdata" defaultValue={JSON.stringify(loaderData?.objecten, null, 2)} />
+        <textarea className="textarea bg-mocha-800 text-white w-full"  cols={10} rows={20} name="realworksdata" defaultValue={JSON.stringify(loaderData?.objecten, null, 2)} />
         <button type="submit" className="btn btn-primary">Submit</button>
         </Form>
       </div>
