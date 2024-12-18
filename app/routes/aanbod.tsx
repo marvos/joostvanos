@@ -20,13 +20,13 @@ export async function loader({ request, context }: Route.LoaderArgs) {
   url: `${context.cloudflare.env.API_JOOST}/kv/values/huizen`,
   method: "GET",
 });
-console.log(objecten.resultaten);
-return {resultaten: objecten.resultaten};
+console.log(objecten?.resultaten);
+return {resultaten: objecten?.resultaten};
 }
 
 
 export default function Aanbod({ loaderData }: Route.ComponentProps) {
-  console.log(loaderData.resultaten);
+  console.log(loaderData?.resultaten);
 
   return (
     <>

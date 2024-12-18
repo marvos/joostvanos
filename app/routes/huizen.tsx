@@ -2,7 +2,8 @@ import type { Route } from "./+types/huizen";
 
 import { useFetch, useFetchRealWorks } from '~/utils/useFetch';
 import type { Objecten } from "~/utils/object-types";
-import { Form, Link } from 'react-router';
+import { Form, Link, useSubmit } from 'react-router';
+import { useEffect, useRef } from 'react';
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -41,14 +42,27 @@ export async function action({
 export default function Aanbod({ loaderData }: Route.ComponentProps) {
   // console.log(loaderData?.objecten);
   console.log(loaderData?.objecten);
+  let formRef = useRef<HTMLFormElement>(null);
+  const submit = useSubmit();
+  // await
+
+  useEffect(() => {
+
+      const timer = setTimeout(() => {
+        submit(formRef.current);
+      }, 5000);
+      return () => clearTimeout(timer);
+
+  }, []);
 
   return (
     <>
       <h1 className="text-4xl m-auto py-14">Submit relaworks data</h1>
       <div className="flex gap-7 flex-wrap ">
-        <Form className="w-full" method="post">
-        <textarea className="textarea bg-mocha-800 text-white w-full"  cols={10} rows={20} name="realworksdata" defaultValue={JSON.stringify(loaderData?.objecten, null, 2)} />
-        <button type="submit" className="btn btn-primary">Submit</button>
+        <Form className="w-full" method="post" ref={formRef}>
+          <textarea className="textarea bg-mocha-800 text-white w-full" cols={10} rows={20} name="realworksdata"
+                    defaultValue={JSON.stringify(loaderData?.objecten, null, 2)} />
+          <button type="submit" className="btn btn-primary">Submit</button>
         </Form>
       </div>
     </>
