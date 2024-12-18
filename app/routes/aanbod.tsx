@@ -12,15 +12,15 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export async function loader({ request, context }: Route.LoaderArgs) {
-const objecten: Objecten = await context.cloudflare.env.OBJECTEN.get('huizen')
-console.log(objecten);
-//   const objecten: Objecten = await useFetch({
-//   request,
-//   context,
-//   url: `${context.cloudflare.env.API_JOOST}/kv/values/huizen`,
-//   method: "GET",
-// });
-// console.log(objecten.resultaten);
+// const objecten: Objecten = await context.cloudflare.env.OBJECTEN.get('huizen')
+
+  const objecten: Objecten = await useFetch({
+  request,
+  context,
+  url: `${context.cloudflare.env.API_JOOST}/kv/values/huizen`,
+  method: "GET",
+});
+console.log(objecten.resultaten);
 return {resultaten: objecten.resultaten};
 }
 

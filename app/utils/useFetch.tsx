@@ -1,8 +1,6 @@
 export const useFetch = async ({ url, method, body }: any): Promise<any> => {
-  if (body) {
-    body = JSON.stringify(body);
-  }
 
+  console.log(body)
   return await fetch(url, {
     method,
     headers: {
