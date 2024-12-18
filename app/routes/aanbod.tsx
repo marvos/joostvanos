@@ -26,7 +26,7 @@ return {resultaten: objecten.resultaten};
 
 
 export default function Aanbod({ loaderData }: Route.ComponentProps) {
-  // console.log(loaderData.resultaten);
+  console.log(loaderData.resultaten);
 
   return (
     <>
