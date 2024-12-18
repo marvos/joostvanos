@@ -24,10 +24,7 @@ export const useFetch = async ({ url, method, body }: any): Promise<any> => {
       throw new Error("Internal Server Error:" + error);
     });
 };
-export const useFetchRealWorks = async ({ url, method, body }: any): Promise<any> => {
-  if (body) {
-    body = JSON.stringify(body);
-  }
+export const useFetchRealWorks = async ({ url, method }: any): Promise<any> => {
 
   return await fetch(`${url}`, {
     method,
@@ -35,7 +32,7 @@ export const useFetchRealWorks = async ({ url, method, body }: any): Promise<any
       "Content-Type": "application/json",
       Authorization: `rwauth 9d24c72c-38e6-4715-acef-45fa273c5e9c`,
     },
-    body,
+
   })
     .then((response) => {
       if (response.status === 202) {

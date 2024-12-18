@@ -11,11 +11,11 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-export async function clientLoader({ request, context }: Route.LoaderArgs) {
+export async function clientLoader() {
+
+
   const huizen: Objecten = await useFetchRealWorks({
-    request,
-    context,
-    url: `${context.cloudflare.env.API_REALWORKS_URL}/wonen/v3/objecten?actief=true&aantal=100`,
+    url: `https://api.realworks.nl/wonen/v3/objecten?actief=true&aantal=100`,
     method: "GET",
   });
 

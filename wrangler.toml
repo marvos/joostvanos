@@ -6,7 +6,7 @@ assets = { directory = "./build/client/" }
 
 
 [vars]
-API_REALWORKS_URL="https://api.realworks.nl"
+
 API_JOOST="https://api.joostvanos.nl"
 VALUE_FROM_CLOUDFLARE = "Hello from Cloudflare WRANGLER"
 # wrangler.toml (wrangler v3.88.0^)

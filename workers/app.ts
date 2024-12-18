@@ -3,7 +3,6 @@ import { createRequestHandler } from "react-router";
 interface Env {
   VALUE_FROM_CLOUDFLARE: string;
   API_JOOST: string;
-  API_REALWORKS_URL: string;
   OBJECTEN:any;
 }
 declare global {
