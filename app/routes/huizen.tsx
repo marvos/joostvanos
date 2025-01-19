@@ -39,7 +39,7 @@ export async function action({
   return realworksdata;
 }
 
-export default function Aanbod({ loaderData }: Route.ComponentProps) {
+export default function Huizen({ loaderData }: Route.ComponentProps) {
   // console.log(loaderData?.objecten);
   console.log(loaderData?.objecten);
   let formRef = useRef<HTMLFormElement>(null);

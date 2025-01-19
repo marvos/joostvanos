@@ -8,8 +8,11 @@ import {
 export default [
   index("routes/homepage.tsx"),
   layout("layouts/main.tsx", [
+
     route("styleguide", "routes/styleguide.tsx"),
     route("aanbod", "routes/aanbod.tsx"),
+    route("makelaardij", "routes/makelaardij.tsx"),
+    route("mediation", "routes/mediation.tsx"),
     route("huizen", "routes/huizen.tsx"),
     route("ip", "routes/ip.tsx"),
   ]),

@@ -31,7 +31,7 @@ export default function Aanbod({ loaderData }: Route.ComponentProps) {
   return (
     <>
       <h1 className="text-4xl m-auto py-14">Aanbod</h1>
-      <div className="flex gap-7 flex-wrap ">
+      <div className="flex gap-7 flex-wrap m-auto items-center justify-center">
         {loaderData?.resultaten?.map((huis) => (
           <div className="card min-[320px]:max-lg:card-side shadow-xl lg:w-96" key={huis.id}>
             <figure>
@@ -78,7 +78,7 @@ export default function Aanbod({ loaderData }: Route.ComponentProps) {
               <div className="card-actions justify-end">
                 <Link
                   to={`/huizen/${huis.id}`}
-                  className="btn btn-secondary rounded-full"
+                  className="btn btn-secondary rounded-full btn-outline"
                 >
                   Lees meer
                 </Link>

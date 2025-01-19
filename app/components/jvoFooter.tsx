@@ -1,7 +1,7 @@
 export function JvoFooter() {
   return (
-    <div className="bg-mocha-900 text-mocha-50 p-10 mt-36 ">
-      <footer className="footer  p-10  container">
+    <div className="bg-mocha-900 text-mocha-50 p-10">
+      <footer className="footer  p-10  container grid grid-cols-4">
         <nav>
           <h6 className="footer-title">Services</h6>
           <a className="link link-hover">Makelaardij</a>
@@ -19,6 +19,108 @@ export function JvoFooter() {
           <a className="link link-hover">Terms of use</a>
           <a className="link link-hover">Privacy policy</a>
           <a className="link link-hover">Cookie policy</a>
+        </nav>
+        <nav className="">
+          <h6 className="footer-title">Contact</h6>
+          <p className="leading-6 ">
+            Utrechtsedwarsstraat 46
+            <br />
+            1017 WG Amsterdam
+            <br />
+          </p>
+          <div className="flex flex-row items-start justify-center gap-4 pb-4">
+            <a href="tel:+31(0)206644511" className="btn btn-secondary ">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                className="inline-block "
+              >
+                <g clipPath="url(#a)">
+                  <path
+                    fill="currentColor"
+                    d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 0 0-1.02.24l-2.2 2.2a15.045 15.045 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1A11.36 11.36 0 0 1 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1ZM21 6h-3V3h-2v3h-3v2h3v3h2V8h3V6Z"
+                  />
+                </g>
+              </svg>
+              020 6644511
+            </a>
+            <a href="tel:+31(0)622691573" className="btn btn-secondary ">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+              >
+                <g clipPath="url(#a)">
+                  <path
+                    fill="currentColor"
+                    d="M17 1.01 7 1c-1.1 0-1.99.9-1.99 2v18c0 1.1.89 2 1.99 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99ZM17 19H7V5h10v14Z"
+                  />
+                </g>
+              </svg>
+              0622 691573
+            </a>
+          </div>
+            <a
+              href="mailto:makelaardij@joostvanos.nl"
+              className="btn btn-link px-0"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clipPath="url(#clip0_17_19831)">
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22H17V20H12C7.66 20 4 16.34 4 12C4 7.66 7.66 4 12 4C16.34 4 20 7.66 20 12V13.43C20 14.22 19.29 15 18.5 15C17.71 15 17 14.22 17 13.43V12C17 9.24 14.76 7 12 7C9.24 7 7 9.24 7 12C7 14.76 9.24 17 12 17C13.38 17 14.64 16.44 15.54 15.53C16.19 16.42 17.31 17 18.5 17C20.47 17 22 15.4 22 13.43V12C22 6.48 17.52 2 12 2ZM12 15C10.34 15 9 13.66 9 12C9 10.34 10.34 9 12 9C13.66 9 15 10.34 15 12C15 13.66 13.66 15 12 15Z"
+                    fill="currentColor"
+                  />
+                </g>
+              </svg>
+              makelaardij@joostvanos.nl
+            </a>
+            <a
+              href="mailto:mediation@joostvanos.nl"
+              className="btn btn-link px-0"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clipPath="url(#clip0_17_19831)">
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22H17V20H12C7.66 20 4 16.34 4 12C4 7.66 7.66 4 12 4C16.34 4 20 7.66 20 12V13.43C20 14.22 19.29 15 18.5 15C17.71 15 17 14.22 17 13.43V12C17 9.24 14.76 7 12 7C9.24 7 7 9.24 7 12C7 14.76 9.24 17 12 17C13.38 17 14.64 16.44 15.54 15.53C16.19 16.42 17.31 17 18.5 17C20.47 17 22 15.4 22 13.43V12C22 6.48 17.52 2 12 2ZM12 15C10.34 15 9 13.66 9 12C9 10.34 10.34 9 12 9C13.66 9 15 10.34 15 12C15 13.66 13.66 15 12 15Z"
+                    fill="currentColor"
+                  />
+                </g>
+              </svg>
+              mediation@joostvanos.nl
+            </a>
+
+
+          {/*<ul>*/}
+          {/*  {resources.map(({ href, text, icon }) => (*/}
+          {/*    <li key={href}>*/}
+          {/*      <a*/}
+          {/*        className="group flex items-center gap-3 self-stretch p-3 leading-normal text-blue-700 hover:underline dark:text-blue-500"*/}
+          {/*        href={href}*/}
+          {/*        target="_blank"*/}
+          {/*        rel="noreferrer"*/}
+          {/*      >*/}
+          {/*        {icon}*/}
+          {/*        {text}*/}
+          {/*      </a>*/}
+          {/*    </li>*/}
+          {/*  ))}*/}
+          {/*  <li className="self-stretch p-3 leading-normal">{message}</li>*/}
+          {/*</ul>*/}
         </nav>
       </footer>
       <footer className="footer border-base-300 border-t px-10 py-4 container mx-auto">
@@ -58,38 +160,47 @@ export function JvoFooter() {
         </aside>
         <nav className="md:place-self-center md:justify-self-end">
           <div className="grid grid-flow-col gap-4">
-            <a>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                className="fill-current"
-              >
-                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
-              </svg>
-            </a>
-            <a>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                className="fill-current"
-              >
-                <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
-              </svg>
-            </a>
-            <a>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                className="fill-current"
-              >
-                <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
-              </svg>
+            {/*<a>*/}
+            {/*  <svg*/}
+            {/*    xmlns="http://www.w3.org/2000/svg"*/}
+            {/*    width="24"*/}
+            {/*    height="24"*/}
+            {/*    viewBox="0 0 24 24"*/}
+            {/*    className="fill-current"*/}
+            {/*  >*/}
+            {/*    <path*/}
+            {/*      d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>*/}
+            {/*  </svg>*/}
+            {/*</a>*/}
+            {/*<a>*/}
+            {/*  <svg*/}
+            {/*    xmlns="http://www.w3.org/2000/svg"*/}
+            {/*    width="24"*/}
+            {/*    height="24"*/}
+            {/*    viewBox="0 0 24 24"*/}
+            {/*    className="fill-current"*/}
+            {/*  >*/}
+            {/*    <path*/}
+            {/*      d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>*/}
+            {/*  </svg>*/}
+            {/*</a>*/}
+            {/*<a>*/}
+            {/*  <svg*/}
+            {/*    xmlns="http://www.w3.org/2000/svg"*/}
+            {/*    width="24"*/}
+            {/*    height="24"*/}
+            {/*    viewBox="0 0 24 24"*/}
+            {/*    className="fill-current"*/}
+            {/*  >*/}
+            {/*    <path*/}
+            {/*      d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>*/}
+            {/*  </svg>*/}
+            {/*</a>*/}
+            <a
+              href="https://www.linkedin.com/in/joost-van-os-912b2a8"
+              className=" "
+            >
+              <img src="LI-In-Bug.png" className="w-12 m-auto" />
             </a>
           </div>
         </nav>
