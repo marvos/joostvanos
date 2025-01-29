@@ -14,7 +14,7 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Mediation({ loaderData }: Route.ComponentProps) {
   return (
-    <>
+    <div className="container max-w-4xl">
       <h1 className="text-4xl m-auto py-14">Mediation</h1>
       <div className="flex gap-7 flex-wrap ">
         <p>
@@ -61,6 +61,6 @@ export default function Mediation({ loaderData }: Route.ComponentProps) {
         </p>
         We zien uit naar onze samenwerking!
       </div>
-    </>
+    </div>
   );
 }

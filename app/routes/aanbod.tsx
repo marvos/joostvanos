@@ -12,32 +12,31 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export async function loader({ request, context }: Route.LoaderArgs) {
-// const objecten: Objecten = await context.cloudflare.env.OBJECTEN.get('huizen')
+  // const objecten: Objecten = await context.cloudflare.env.OBJECTEN.get('huizen')
 
   const objecten: Objecten = await useFetch({
-  request,
-  context,
-  url: `${context.cloudflare.env.API_JOOST}/kv/values/huizen`,
-  method: "GET",
-});
-console.log(objecten?.resultaten);
-return {resultaten: objecten?.resultaten};
+    request,
+    context,
+    url: `${context.cloudflare.env.API_JOOST}/kv/values/huizen`,
+    method: "GET",
+  });
+  return { resultaten: objecten?.resultaten };
 }
 
-
 export default function Aanbod({ loaderData }: Route.ComponentProps) {
-  console.log(loaderData?.resultaten);
-
+  const { resultaten } = loaderData;
   return (
     <>
       <h1 className="text-4xl m-auto py-14">Aanbod</h1>
       <div className="flex gap-7 flex-wrap m-auto items-center justify-center">
-        {loaderData?.resultaten?.map((huis) => (
-          <div className="card min-[320px]:max-lg:card-side shadow-xl lg:w-96" key={huis.id}>
+        {resultaten?.map((huis) => (
+          <div
+            className="card min-[320px]:max-lg:card-side shadow-xl lg:w-96"
+            key={huis.id}
+          >
             <figure>
               <img
                 src={`${huis.media[0].link}&resize=4`}
-
                 className="w-full object-cover h-full min-w-64 "
               />
             </figure>
