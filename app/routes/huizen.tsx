@@ -1,9 +1,8 @@
-import type { Route } from "./+types/huizen";
+import type { Route } from "./+types/aanbod";
 
-import { useFetch, useFetchRealWorks } from '~/utils/useFetch';
-import type { Objecten } from "~/utils/object-types";
-import { Form, Link, useSubmit } from 'react-router';
-import { useEffect, useRef } from 'react';
+import { useFetch } from "~/utils/useFetch";
+import type { Detail, Objecten, Resultaten } from "~/utils/object-types";
+import { Link } from "react-router";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -12,59 +11,116 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-export async function clientLoader() {
+export async function loader({ request, context }: Route.LoaderArgs) {
+  // const objecten: Objecten = await context.cloudflare.env.OBJECTEN.get('huizen')
 
-
-  const huizen: Objecten = await useFetchRealWorks({
-    url: `https://api.realworks.nl/wonen/v3/objecten?actief=true&aantal=100`,
-    method: "GET",
-  });
-
-  return { objecten: huizen };
-}
-export async function action({
-                               request,
-                               context
-                             }: Route.ActionArgs) {
-  let formData = await request.formData();
-  let  realworksdata= await formData.get("realworksdata");
-
-  await useFetch({
+  const objecten: Objecten = await useFetch({
     request,
     context,
     url: `${context.cloudflare.env.API_JOOST}/kv/values/huizen`,
-    method: "PUT",
-    body: realworksdata,
+    method: "GET",
   });
-  return realworksdata;
+  return { resultaten: objecten?.resultaten };
 }
 
 export default function Huizen({ loaderData }: Route.ComponentProps) {
-  // console.log(loaderData?.objecten);
-  console.log(loaderData?.objecten);
-  let formRef = useRef<HTMLFormElement>(null);
-  const submit = useSubmit();
-  // await
-
-  useEffect(() => {
-
-      const timer = setTimeout(() => {
-        submit(formRef.current);
-      }, 5000);
-      return () => clearTimeout(timer);
-
-  }, []);
-
+  const { resultaten } = loaderData;
   return (
-    <>
-      <h1 className="text-4xl m-auto py-14">Submit relaworks data</h1>
-      <div className="flex gap-7 flex-wrap ">
-        <Form className="w-full" method="post" ref={formRef}>
-          <textarea className="textarea bg-mocha-800 text-white w-full" cols={10} rows={20} name="realworksdata"
-                    defaultValue={JSON.stringify(loaderData?.objecten, null, 2)} />
-          <button type="submit" className="btn btn-primary">Submit</button>
-        </Form>
+    <div className=" flex flex-col gap-6 pb-20 px-5">
+      <h1 className="text-4xl m-auto py-14">Huizen</h1>
+      <div className="grid lg:grid-cols-2 gap-7 m-auto items-center justify-center">
+        {resultaten?.map((huis: Resultaten) => {
+          const overdrachtStatus = huis.financieel.overdracht.status
+            ?.toLowerCase()
+            ?.replace(/[^a-zA-Z0-9 ]/g, " ");
+          if (overdrachtStatus !== "ingetrokken") {
+            return (
+              <div
+                className="card md:card-side bg-base-100 shadow-xl"
+                key={huis.id}
+              >
+                <figure>
+                  <img
+                    src={`${huis.media[0].link}&resize=4`}
+                    className="object-cover h-full sm:w-96"
+                  />
+                </figure>
+                <div className="card-body p-6">
+                  <h2 className="card-title">
+                    {new Intl.NumberFormat("nl-NL", {
+                      style: "currency",
+                      currency: "EUR",
+                    })
+                      .format(huis.financieel.overdracht.koopprijs)
+                      .slice(0, -3)}
+
+                    <div
+                      className={`badge whitespace-nowrap ${
+                        overdrachtStatus === "beschikbaar"
+                          ? " badge-success"
+                          : overdrachtStatus === "verkocht"
+                          ? "badge-neutral"
+                          : overdrachtStatus === "verkocht onder voorbehoud"
+                          ? "badge-warning"
+                          : ""
+                      }`}
+                    >
+                      {overdrachtStatus}
+                    </div>
+                  </h2>
+                  <h2 className="card-title">
+                    {huis.adres.straat} {huis.adres.huisnummer.hoofdnummer}
+                  </h2>
+                  <p className="">
+                    {huis.adres.postcode} {huis.adres.plaats}
+                  </p>
+                  <p>{huis.teksten.aanbiedingstekst.substring(0, 100)}</p>
+                  <div className="flex flex-wrap gap-2">
+                    <div className="flex gap-1 text-xs">
+                      <img src="/icons/oppervlakte.svg" />
+                      {huis.algemeen.woonoppervlakte}m2
+                    </div>
+                    {huis.detail.kadaster[0].kadastergegevens.oppervlakte && (
+                      <div className="flex gap-1 text-xs">
+                        <img src="/icons/perceel.svg" />
+                        {huis.detail.kadaster[0].kadastergegevens.oppervlakte}m2
+                        perceel
+                      </div>
+                    )}
+                    {huis.algemeen.aantalKamers && (
+                      <div className="flex gap-1 text-xs">
+                        <img src="/icons/house-room.svg" />
+                        {huis.algemeen.aantalKamers} kamers
+                      </div>
+                    )}
+                    {huis.algemeen.energieklasse && (
+                      <div className="flex gap-1 text-xs">
+                        <img src="/icons/energy.svg" />
+                        {huis.algemeen.energieklasse}
+                      </div>
+                    )}
+                    {/*<div className="badge badge-outline capitalize">*/}
+                    {/*  {huis.algemeen.woonhuistype*/}
+                    {/*    ?.toLowerCase()*/}
+                    {/*    ?.replace(/[^a-zA-Z0-9 ]/g, " ")}*/}
+                    {/*</div>*/}
+
+                    {/*<div className="badge"> bouwjaar {huis.algemeen.bouwjaar}</div>*/}
+                  </div>
+                  {/*<div className="card-actions justify-end">*/}
+                  {/*  <Link*/}
+                  {/*    to={`/huizen/${huis.id}`}*/}
+                  {/*    className="btn btn-secondary rounded-full btn-outline"*/}
+                  {/*  >*/}
+                  {/*    Lees meer*/}
+                  {/*  </Link>*/}
+                  {/*</div>*/}
+                </div>
+              </div>
+            );
+          }
+        })}
       </div>
-    </>
+    </div>
   );
 }

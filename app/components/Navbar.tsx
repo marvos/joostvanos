@@ -3,13 +3,20 @@ import { Link } from "react-router";
 export const Navbar = ({ inverted }: { inverted: boolean }) => {
   return (
     <div
-      className={`navbar fixed z-30 ${
-        inverted ? "bg-base-100/10" : "bg-mocha-700 border-b-2 border-mocha-700"
+      className={`navbar fixed z-30 px-4  shadow-2xl ${
+        inverted ? "" : " bg-base-200 "
       } `}
     >
+      <Link to={"/"} className="btn btn-ghost text-xl p-0">
+        <img src="/logo.png" alt="logo" className="max-w-[45px] h-auto" />
+      </Link>
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost lg:hidden text-white"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -30,38 +37,16 @@ export const Navbar = ({ inverted }: { inverted: boolean }) => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
             <li>
-              <a className="text-xl">Services</a>
-              <ul className="p-2 text-xl">
-                <li>
-                  <Link to={"/makelaardij"}>Makelaardij</Link>
-                </li>
-                <li>
-                  <Link to={"/mediation"}>Mediation</Link>
-                </li>
-              </ul>
+              <Link to={"/makelaardij"}>Makelaardij</Link>
             </li>
             <li>
-              <a>Huizen</a>
-              <ul className="p-2">
-                <li>
-                  <Link to={"/aanbod"}>Aanbod</Link>
-                </li>
-                <li>
-                  <a>Verkocht</a>
-                </li>
-                <li>
-                  <a>Aangekocht</a>
-                </li>
-                <li>
-                  <a>Verhuur</a>
-                </li>
-              </ul>
+              <Link to={"/mediation"}>Mediation</Link>
+            </li>
+            <li>
+              <Link to={"/huizen"}>Huizen</Link>
             </li>
           </ul>
         </div>
-        <Link to={"/"} className="btn btn-ghost text-xl px-2">
-          <img src="/logo.png" alt="logo" className="max-w-[45px] h-auto" />
-        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul
@@ -70,42 +55,45 @@ export const Navbar = ({ inverted }: { inverted: boolean }) => {
           }`}
         >
           <li>
-            <Link className="btn btn-secondary btn-sm " to={"/makelaardij"}>
+            <Link
+              className={`btn  btn-outline font-normal  border-0 ${
+                inverted ? "text-white" : " text-mocha-900"
+              } `}
+              to={"/makelaardij"}
+            >
               Makelaardij
             </Link>
           </li>
           <li>
-            <Link className="btn btn-secondary btn-sm" to={"/mediation"}>
+            <Link
+              className={`btn  btn-outline font-normal border-0 " ${
+                inverted ? "text-white" : " text-mocha-900"
+              } `}
+              to={"/mediation"}
+            >
               Mediation
             </Link>
           </li>
-          {/*<li>*/}
-          {/*	<details>*/}
-          {/*		<summary>Diensten</summary>*/}
-          {/*		<ul className="p-2">*/}
 
-          {/*		</ul>*/}
-          {/*	</details>*/}
-          {/*</li>*/}
           <li>
-            <Link className="btn btn-secondary btn-sm" to={"/aanbod"}>
-              Aanbod
+            <Link
+              className={`btn  btn-outline font-normal  border-0 ${
+                inverted ? "text-white" : " text-mocha-900"
+              } `}
+              to={"/huizen"}
+            >
+              Huizen
             </Link>
           </li>
-          {/*<li>*/}
-          {/*	<details>*/}
-          {/*		<summary>Huizen</summary>*/}
-          {/*		<ul className={`p-2  ${inverted ? "bg-base-100/20" :"bg-mocha-700"} ${inverted ? "text-white" :"text-mocha-50"}`}>*/}
-          {/*			<li><a>Verkocht</a></li>*/}
-          {/*			<li><a>Aangekocht</a></li>*/}
-          {/*			<li><a>Verhuur</a></li>*/}
-          {/*		</ul>*/}
-          {/*	</details>*/}
-          {/*</li>*/}
         </ul>
       </div>
       <div className="navbar-end">
-        <a href="tel:+31(0)622691573" className="btn btn-primary ">
+        <a
+          href="tel:+31(0)622691573"
+          className={`btn  btn-outline font-normal border-0 " ${
+            inverted ? "text-white" : " text-mocha-900"
+          } `}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
