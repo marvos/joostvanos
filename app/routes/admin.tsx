@@ -48,8 +48,10 @@ export default function admin({ loaderData }: Route.ComponentProps) {
 
   return (
     <>
-      <h1 className="text-4xl m-auto py-14">Submit relaworks data</h1>
-      <div className="flex gap-7 flex-wrap ">
+      <h1 className="text-4xl m-auto py-14 w-full container">
+        Submit realworks data
+      </h1>
+      <div className="flex gap-7 flex-wrap w-full container">
         <Form className="w-full" method="post" ref={formRef}>
           <textarea
             className="textarea bg-mocha-800 text-white w-full"

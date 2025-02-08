@@ -3,7 +3,7 @@ import { Link } from "react-router";
 export function JvoFooter() {
   return (
     <div className="bg-mocha-800 text-mocha-50 py-10 px-6 ">
-      <footer className=" flex flex-col lg:grid lg:grid-cols-4 ">
+      <footer className=" flex flex-col lg:grid lg:grid-cols-4 gap-10 lg:gap-4 ">
         <nav className="flex flex-col gap-2">
           <h6 className="footer-title">Services</h6>
           <Link to="/makelaardij" className="link link-hover">
@@ -15,7 +15,6 @@ export function JvoFooter() {
         </nav>
         <nav className="flex flex-col gap-2">
           <h6 className="footer-title">AAnbod</h6>
-
           <Link to="/huizen" className="link link-hover">
             Huizen
           </Link>
@@ -23,9 +22,12 @@ export function JvoFooter() {
         <nav className="flex flex-col gap-2">
           <h6 className="footer-title">Legal</h6>
           {/*<a className="link link-hover">Terms of use</a>*/}
-          <Link to="/" className="link link-hover">
+          <a
+            href="/NVM-Privacyverklaring-Joost-van-Os-Makelaardij-en-Mediation.pdf"
+            className="link link-hover"
+          >
             Privacy policy
-          </Link>
+          </a>
           {/*<a className="link link-hover">Cookie policy</a>*/}
         </nav>
         <nav className="flex flex-col gap-2">

@@ -98,7 +98,7 @@ export default function Homepage({ loaderData }: Route.ComponentProps) {
         <div className="absolute top-0 left-0 w-full h-full bg-opacity-80 bg-black/50  min-h-[calc(100vh_-_100px)]"></div>
       </div>
       <div className="lg:h-[50vh] lg:grid lg:grid-cols-2">
-        <div className="p-16 lg:p-20 flex flex-col gap-4 items-center justify-center">
+        <div className="p-8 lg:p-20 flex flex-col gap-4 items-center justify-center">
           <h2 className="text-2xl font-medium w-full">
             Waarom kiezen voor{" "}
             <span className=" font-bold">Joost van Os Makelaardij?</span>
@@ -106,7 +106,7 @@ export default function Homepage({ loaderData }: Route.ComponentProps) {
           <p className="text-xl text-mocha-900">
             <img
               src="/IMG_2279.JPG"
-              className="float-left max-w-64 pr-4 lg:hidden"
+              className="float-left  max-w-80 pr-4 pb-4 lg:hidden"
             />
             Met ruim 25 jaar ervaring in de makelaardij en 850+ geslaagde
             transacties zijn wij deskundig en hebben uitgebreide kennis van de
@@ -136,7 +136,7 @@ export default function Homepage({ loaderData }: Route.ComponentProps) {
           }}
         ></div>
 
-        <div className="p-16 lg:p-20 flex flex-col gap-4 items-center justify-center">
+        <div className="p-8 lg:p-20 flex flex-col gap-4 items-center justify-center">
           <h2 className="text-2xl font-medium w-full">
             Waarom kiezen voor{" "}
             <span className=" font-bold"> Joost van Os Mediation?</span>
@@ -144,7 +144,7 @@ export default function Homepage({ loaderData }: Route.ComponentProps) {
           <p className="text-xl text-mocha-900">
             <img
               src="/mediator.jpg"
-              className="float-right max-w-64 pl-4 lg:hidden"
+              className="float-right max-w-80 pl-4 pb-4 lg:hidden"
             />
             Wij begrijpen dat conflicten in zowel persoonlijke als zakelijke
             relaties kunnen ontstaan. Het is onze missie om u te helpen deze
