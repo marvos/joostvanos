@@ -2,25 +2,20 @@ import type { Route } from "./+types/homepage";
 import { Navbar } from "~/components/Navbar";
 import { JvoFooter } from "~/components/jvoFooter";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Grid, Pagination, Autoplay, Navigation } from "swiper/modules";
-import swiper from "swiper/css?url";
-import swipergrid from "swiper/css/grid?url";
-import swiperpagination from "swiper/css/pagination?url";
 import type { Objecten } from "~/utils/object-types";
 import { useFetch } from "~/utils/useFetch";
 import { Link } from "react-router";
+
 export function meta({}: Route.MetaArgs) {
   return [
     { title: "Joost van Os Makelaardij & Mediation" },
-    { name: "description", content: "Welcome to joostvanos.nl!" },
+    {
+      name: "description",
+      content:
+        "Welkom bij joostvanos.nl! Met ruim 25 jaar ervaring in de makelaardij en 850+ geslaagde transacties zijn wij deskundig en hebben uitgebreide kennis van de lokale vastgoedmarkt.",
+    },
   ];
 }
-export const links: Route.LinksFunction = () => [
-  { rel: "stylesheet", href: swiper },
-  { rel: "stylesheet", href: swipergrid },
-  { rel: "stylesheet", href: swiperpagination },
-];
 
 export async function loader({ request, context }: Route.LoaderArgs) {
   const objecten: Objecten = await useFetch({
@@ -146,8 +141,8 @@ export default function Homepage({ loaderData }: Route.ComponentProps) {
               src="/mediator.jpg"
               className="float-right max-w-80 pl-4 pb-4 lg:hidden"
             />
-            Wij begrijpen dat conflicten in zowel persoonlijke als zakelijke
-            relaties kunnen ontstaan. Het is onze missie om u te helpen deze
+            Wij begrijpen dat er in zowel persoonlijke als zakelijke relaties
+            conflicten kunnen ontstaan. Het is onze missie om u te helpen deze
             conflicten op een <span className="font-bold">constructieve</span>{" "}
             en <span className="font-bold">effectieve</span> manier op te
             lossen.
@@ -159,33 +154,6 @@ export default function Homepage({ loaderData }: Route.ComponentProps) {
             </Link>
           </div>
         </div>
-        {/*<Swiper*/}
-        {/*  slidesPerView={3}*/}
-        {/*  spaceBetween={30}*/}
-        {/*  pagination={{*/}
-        {/*    clickable: true,*/}
-        {/*  }}*/}
-        {/*  autoplay={{*/}
-        {/*    delay: 5500,*/}
-        {/*    disableOnInteraction: false,*/}
-        {/*  }}*/}
-        {/*  navigation={true}*/}
-        {/*  modules={[Pagination, Autoplay, Navigation]}*/}
-        {/*  className="swiper"*/}
-        {/*>*/}
-        {/*  {resultaten?.map((huis) => {*/}
-        {/*    return (*/}
-        {/*      <SwiperSlide>*/}
-        {/*        <figure>*/}
-        {/*          <img*/}
-        {/*            src={`${huis.media[0].link}&resize=4`}*/}
-        {/*            className="w-full object-cover h-[200px]"*/}
-        {/*          />*/}
-        {/*        </figure>*/}
-        {/*      </SwiperSlide>*/}
-        {/*    );*/}
-        {/*  })}*/}
-        {/*</Swiper>*/}
       </div>
       <JvoFooter />
     </>

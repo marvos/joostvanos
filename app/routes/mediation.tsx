@@ -18,7 +18,7 @@ export default function Mediation({ loaderData }: Route.ComponentProps) {
       <div
         className="hero min-h-[50vh]"
         style={{
-          backgroundImage: "url(/canals-day.webp)",
+          backgroundImage: "url(/mediator-canalview.jpg)",
         }}
       >
         <div className="hero-overlay bg-black bg-opacity-60"></div>
@@ -26,13 +26,12 @@ export default function Mediation({ loaderData }: Route.ComponentProps) {
           <div className="max-w-md">
             <h1 className="mb-5 text-5xl font-bold mt-[20vh]">Mediation</h1>
             <p className="mb-5 ">
-              Wij begrijpen dat conflicten in zowel persoonlijke als zakelijke
-              relaties kunnen ontstaan. Het is onze missie om u te helpen deze
+              Wij begrijpen dat er in zowel persoonlijke als zakelijke relaties
+              conflicten kunnen ontstaan. Het is onze missie om u te helpen deze
               conflicten op een <span className="font-bold">constructieve</span>{" "}
               en <span className="font-bold">effectieve</span> manier op te
               lossen.
             </p>
-            {/*<button className="btn btn-primary">Get Started</button>*/}
           </div>
         </div>
       </div>
