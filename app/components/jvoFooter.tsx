@@ -1,30 +1,46 @@
+import { Link } from "react-router";
+
 export function JvoFooter() {
   return (
-    <div className="bg-mocha-800 text-mocha-50 p-4 xl:p-10">
-      <footer className="footer  flex flex-col lg:grid lg:grid-cols-3  lg:container">
-        <nav>
+    <div className="bg-mocha-800 text-mocha-50 py-10 px-6 ">
+      <footer className=" flex flex-col lg:grid lg:grid-cols-4 ">
+        <nav className="flex flex-col gap-2">
           <h6 className="footer-title">Services</h6>
-          <a className="link link-hover">Makelaardij</a>
-          <a className="link link-hover">Mediation</a>
-          <a className="link link-hover">Huizen</a>
+          <Link to="/makelaardij" className="link link-hover">
+            Makelaardij
+          </Link>
+          <Link to="/mediation" className="link link-hover">
+            Mediation
+          </Link>
         </nav>
+        <nav className="flex flex-col gap-2">
+          <h6 className="footer-title">AAnbod</h6>
 
-        <nav>
+          <Link to="/huizen" className="link link-hover">
+            Huizen
+          </Link>
+        </nav>
+        <nav className="flex flex-col gap-2">
           <h6 className="footer-title">Legal</h6>
           {/*<a className="link link-hover">Terms of use</a>*/}
-          <a className="link link-hover">Privacy policy</a>
+          <Link to="/" className="link link-hover">
+            Privacy policy
+          </Link>
           {/*<a className="link link-hover">Cookie policy</a>*/}
         </nav>
-        <nav className="">
+        <nav className="flex flex-col gap-2">
           <h6 className="footer-title">Contact</h6>
-          <p className="leading-6 ">
+          <p className="leading-6 mb-4 ">
             Utrechtsedwarsstraat 46
             <br />
             1017 WG Amsterdam
             <br />
           </p>
           <div className="grid grid-cols-2  items-start justify-center gap-4 pb-4">
-            <a href="tel:+31(0)206644511" className="btn btn-secondary ">
+            <a
+              href="tel:+31(0)206644511"
+              className="btn btn-secondary  flex flex-nowrap"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -41,7 +57,10 @@ export function JvoFooter() {
               </svg>
               020 6644511
             </a>
-            <a href="tel:+31(0)622691573" className="btn btn-secondary ">
+            <a
+              href="tel:+31(0)622691573"
+              className="btn btn-secondary  flex flex-nowrap"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -60,7 +79,7 @@ export function JvoFooter() {
 
             <a
               href="mailto:makelaardij@joostvanos.nl"
-              className="btn btn-secondary "
+              className="btn btn-secondary  flex flex-nowrap"
             >
               <svg
                 width="24"
@@ -76,11 +95,11 @@ export function JvoFooter() {
                   />
                 </g>
               </svg>
-              makelaardij
+              <div className="break-all"> makelaardij@joostvanos.nl</div>
             </a>
             <a
               href="mailto:mediation@joostvanos.nl"
-              className="btn btn-secondary "
+              className="btn btn-secondary flex flex-nowrap"
             >
               <svg
                 width="24"
@@ -96,12 +115,12 @@ export function JvoFooter() {
                   />
                 </g>
               </svg>
-              mediation
+              <div className="break-all">mediation@joostvanos.nl</div>
             </a>
           </div>
         </nav>
       </footer>
-      <footer className="footer lg:container ">
+      <footer className="footer xl:container ">
         <aside className="grid-flow-col items-center">
           <svg
             viewBox="0 0 921 429"

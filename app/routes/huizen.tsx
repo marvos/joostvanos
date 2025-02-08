@@ -26,7 +26,7 @@ export async function loader({ request, context }: Route.LoaderArgs) {
 export default function Huizen({ loaderData }: Route.ComponentProps) {
   const { resultaten } = loaderData;
   return (
-    <div className=" flex flex-col gap-6 pb-20 px-5">
+    <div className="container flex flex-col gap-6 pb-20 px-5">
       <h1 className="text-4xl m-auto py-14">Huizen</h1>
       <div className="grid lg:grid-cols-2 gap-7 m-auto items-center justify-center">
         {resultaten?.map((huis: Resultaten) => {
@@ -36,16 +36,22 @@ export default function Huizen({ loaderData }: Route.ComponentProps) {
           if (overdrachtStatus !== "ingetrokken") {
             return (
               <div
-                className="card md:card-side bg-base-100 shadow-xl"
+                className="card md:card-side bg-white shadow-xl"
                 key={huis.id}
               >
                 <figure>
                   <img
                     src={`${huis.media[0].link}&resize=4`}
-                    className="object-cover h-full sm:w-96"
+                    className="object-fill w-full sm:h-full  sm:max-h-full sm:w-96"
                   />
                 </figure>
-                <div className="card-body p-6">
+                <div className="card-body px-6 py-4">
+                  <h2 className="card-title flex-col gap-0 items-start">
+                    {huis.adres.straat} {huis.adres.huisnummer.hoofdnummer}
+                    <span className="text-sm font-normal">
+                      {huis.adres.postcode} {huis.adres.plaats}
+                    </span>
+                  </h2>
                   <h2 className="card-title">
                     {new Intl.NumberFormat("nl-NL", {
                       style: "currency",
@@ -68,13 +74,8 @@ export default function Huizen({ loaderData }: Route.ComponentProps) {
                       {overdrachtStatus}
                     </div>
                   </h2>
-                  <h2 className="card-title">
-                    {huis.adres.straat} {huis.adres.huisnummer.hoofdnummer}
-                  </h2>
-                  <p className="">
-                    {huis.adres.postcode} {huis.adres.plaats}
-                  </p>
-                  <p>{huis.teksten.aanbiedingstekst.substring(0, 100)}</p>
+                  <p className=""></p>
+                  <p>{huis.teksten.aanbiedingstekst.substring(0, 130)}...</p>
                   <div className="flex flex-wrap gap-2">
                     <div className="flex gap-1 text-xs">
                       <img src="/icons/oppervlakte.svg" />

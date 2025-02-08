@@ -6,7 +6,7 @@ export default function MainLayout() {
   return (
     <>
       <Navbar inverted={false} />
-      <div className="container mx-auto pt-14 px-0 flex items-center flex-col">
+      <div className="mx-auto pt-14 px-0 flex items-center flex-col">
         <Outlet />
       </div>
       <JvoFooter />

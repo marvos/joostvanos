@@ -98,23 +98,24 @@ export default function Homepage({ loaderData }: Route.ComponentProps) {
         <div className="absolute top-0 left-0 w-full h-full bg-opacity-80 bg-black/50  min-h-[calc(100vh_-_100px)]"></div>
       </div>
       <div className="lg:h-[50vh] lg:grid lg:grid-cols-2">
-        <div className="p-6 lg:p-20 flex flex-col gap-4 items-center justify-center">
+        <div className="p-16 lg:p-20 flex flex-col gap-4 items-center justify-center">
           <h2 className="text-2xl font-medium w-full">
-            Waarom kiezen voor Joost van Os{" "}
-            <span className=" font-bold">Makelaardij?</span>
+            Waarom kiezen voor{" "}
+            <span className=" font-bold">Joost van Os Makelaardij?</span>
           </h2>
           <p className="text-xl text-mocha-900">
+            <img
+              src="/IMG_2279.JPG"
+              className="float-left max-w-64 pr-4 lg:hidden"
+            />
             Met ruim 25 jaar ervaring in de makelaardij en 850+ geslaagde
             transacties zijn wij deskundig en hebben uitgebreide kennis van de
-            lokale vastgoedmarkt. Wij geloven in een persoonlijke benadering. Uw
-            wensen en behoeften staan bij ons centraal. Wij communiceren helder
-            en eerlijk, zodat u altijd goed geïnformeerd bent. Mede dankzij ons
-            uitgebreide netwerk kunnen wij u snel en effectief helpen bij al uw
-            vastgoedvragen.
+            lokale vastgoedmarkt.
+            <br />
           </p>
           <div className="w-full">
             <Link to="/makelaardij" className="btn btn-primary w-auto">
-              Lees meer over makelaardij
+              Lees meer over Makelaardij
             </Link>
           </div>
         </div>
@@ -125,37 +126,36 @@ export default function Homepage({ loaderData }: Route.ComponentProps) {
           }}
         ></div>
       </div>
+      <hr />
       <div className="lg:h-[50vh] lg:grid lg:grid-cols-2">
         <div
           className="h-[50vh] bg-cover bg-no-repeat bg-center hidden lg:block "
           style={{
-            backgroundImage: "url(/IMG_2283.JPG)",
+            backgroundImage: "url(/mediator.jpg)",
+            // backgroundImage: "url(/IMG_2283.JPG)",
           }}
         ></div>
-        <div className="p-6 lg:p-20 flex flex-col gap-4 items-center justify-center">
+
+        <div className="p-16 lg:p-20 flex flex-col gap-4 items-center justify-center">
           <h2 className="text-2xl font-medium w-full">
-            Waarom kiezen voor Joost van Os{" "}
-            <span className=" font-bold">Mediation?</span>
+            Waarom kiezen voor{" "}
+            <span className=" font-bold"> Joost van Os Mediation?</span>
           </h2>
           <p className="text-xl text-mocha-900">
+            <img
+              src="/mediator.jpg"
+              className="float-right max-w-64 pl-4 lg:hidden"
+            />
             Wij begrijpen dat conflicten in zowel persoonlijke als zakelijke
             relaties kunnen ontstaan. Het is onze missie om u te helpen deze
             conflicten op een <span className="font-bold">constructieve</span>{" "}
             en <span className="font-bold">effectieve</span> manier op te
             lossen.
-          </p>{" "}
-          <p className="text-xl text-mocha-900">
-            Met onze professionele begeleiding creëren we een onpartijdige en{" "}
-            <span className="font-bold">veilige omgeving</span> waarin alle
-            betrokken partijen hun zorgen en wensen kunnen uiten om zo meer{" "}
-            <span className="font-bold">begrip</span>
-            voor elkaars standpunten te krijgen en daarmee tot een{" "}
-            <span className="font-bold">duurzame oplossing</span> te kunnen
-            komen.
+            <br />
           </p>
           <div className="w-full">
             <Link to="/mediation" className="btn btn-primary w-auto">
-              Lees meer over mediation
+              Lees meer over Mediation
             </Link>
           </div>
         </div>
