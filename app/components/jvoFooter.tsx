@@ -9,12 +9,17 @@ export function JvoFooter() {
           <Link to="/makelaardij" className="link link-hover">
             Makelaardij
           </Link>
-          <Link to="/mediation" className="link link-hover">
-            Mediation
+
+          <Link to={"/vastgoed-mediation"} className="link link-hover">
+            Vastgoed Mediation
+          </Link>
+
+          <Link to={"/mediation"} className="link link-hover">
+            Mediation diensten
           </Link>
         </nav>
         <nav className="flex flex-col gap-2">
-          <h6 className="footer-title">AAnbod</h6>
+          <h6 className="footer-title">Aanbod</h6>
           <Link to="/huizen" className="link link-hover">
             Huizen
           </Link>

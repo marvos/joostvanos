@@ -24,7 +24,9 @@ export default function Mediation({ loaderData }: Route.ComponentProps) {
         <div className="hero-overlay bg-black bg-opacity-60"></div>
         <div className="hero-content text-neutral-content text-center items-end justify-end">
           <div className="max-w-md">
-            <h1 className="mb-5 text-5xl font-bold mt-[20vh]">Mediation</h1>
+            <h1 className="mb-5 text-5xl font-bold mt-[20vh]">
+              Mediation Diensten
+            </h1>
             <p className="mb-5 ">
               Wij begrijpen dat er in zowel persoonlijke als zakelijke relaties
               conflicten kunnen ontstaan. Het is onze missie om u te helpen deze
@@ -157,7 +159,7 @@ export default function Mediation({ loaderData }: Route.ComponentProps) {
           <h2 className="text-xl font-bold">
             Waarom kiezen voor Joost van Os Makelaardij & Mediation?
           </h2>
-          <br />
+
           <p>
             Met persoonlijke aandacht en neutrale begeleiding bieden wij
             volledige ondersteuning bij het oplossen van alle mogelijke

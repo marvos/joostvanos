@@ -1,6 +1,13 @@
+import { useState } from "react";
 import { Link, NavLink } from "react-router";
 
 export const Navbar = ({ inverted }: { inverted: boolean }) => {
+  const handleMenuCloseClick = () => {
+    const elem = document.activeElement;
+    if (elem) {
+      elem?.blur();
+    }
+  };
   return (
     <div
       className={`navbar fixed z-30 px-4  shadow-2xl ${
@@ -45,7 +52,15 @@ export const Navbar = ({ inverted }: { inverted: boolean }) => {
               <Link to={"/makelaardij"}>Makelaardij</Link>
             </li>
             <li>
-              <Link to={"/mediation"}>Mediation</Link>
+              <a className="pointer-events-none">Mediation</a>
+              <ul className="p-2">
+                <li>
+                  <Link to={"/vastgoed-mediation"}>Vastgoed Mediation</Link>
+                </li>
+                <li>
+                  <Link to={"/mediation"}>Mediation diensten</Link>
+                </li>
+              </ul>
             </li>
             <li>
               <Link to={"/huizen"}>Huizen</Link>
@@ -99,25 +114,65 @@ export const Navbar = ({ inverted }: { inverted: boolean }) => {
               Makelaardij
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              className={({ isActive, isPending }) => {
-                {
-                  return `btn  btn-outline  border-0 ${
-                    inverted ? "text-white" : " text-mocha-900"
-                  } ${
-                    isPending
-                      ? " pending"
-                      : isActive
-                      ? " font-extrabold"
-                      : "font-normal "
-                  }`;
-                }
-              }}
-              to={"/mediation"}
+
+          <li className="dropdown">
+            <label
+              tabIndex={0}
+              className={`btn  btn-outline leading-8  border-0 ${
+                inverted ? "text-white" : " text-mocha-900"
+              }`}
             >
               Mediation
-            </NavLink>
+            </label>
+            <ul
+              tabIndex={0}
+              className={`dropdown-content menu p-2 shadow rounded-box w-52  ${
+                inverted ? " bg-black " : "  bg-base-200 "
+              }`}
+            >
+              <li>
+                <NavLink
+                  className={({ isActive, isPending }) => {
+                    {
+                      return `btn  btn-outline  border-0 ${
+                        inverted ? "text-white" : " text-mocha-900"
+                      } ${
+                        isPending
+                          ? " pending"
+                          : isActive
+                          ? " font-extrabold"
+                          : "font-normal "
+                      }`;
+                    }
+                  }}
+                  to={"/vastgoed-mediation"}
+                  onClick={(e) => handleMenuCloseClick}
+                >
+                  Vastgoed mediation
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  className={({ isActive, isPending }) => {
+                    {
+                      return `btn  btn-outline  border-0 ${
+                        inverted ? "text-white" : " text-mocha-900"
+                      } ${
+                        isPending
+                          ? " pending"
+                          : isActive
+                          ? " font-extrabold"
+                          : "font-normal "
+                      }`;
+                    }
+                  }}
+                  to={"/mediation"}
+                  onClick={(e) => handleMenuCloseClick}
+                >
+                  Mediation diensten
+                </NavLink>
+              </li>
+            </ul>
           </li>
 
           <li>
