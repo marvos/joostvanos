@@ -153,11 +153,12 @@ export default function Mediation({ loaderData }: Route.ComponentProps) {
               </div>
             </li>
           </ul>
+
+          <h2 className="text-xl font-bold">
+            Waarom kiezen voor Joost van Os Makelaardij & Mediation?
+          </h2>
+          <br />
           <p>
-            <h2 className="text-xl font-bold">
-              Waarom kiezen voor Joost van Os Makelaardij & Mediation?
-            </h2>
-            <br />
             Met persoonlijke aandacht en neutrale begeleiding bieden wij
             volledige ondersteuning bij het oplossen van alle mogelijke
             vastgoedconflicten. Wij geloven in maatwerk. Iedere situatie is
@@ -166,7 +167,7 @@ export default function Mediation({ loaderData }: Route.ComponentProps) {
             om duurzame oplossingen te creëren die toekomstige problemen helpen
             voorkomen.
           </p>
-          <h3 className="font-bold text-2xl text-center">
+          <h3 className="font-bold text-2xl text-center w-full">
             We zien uit naar onze samenwerking!
           </h3>
         </div>

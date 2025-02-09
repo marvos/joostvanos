@@ -88,6 +88,23 @@ export default function Homepage({ loaderData }: Route.ComponentProps) {
               Samen naar
               <br /> een succesvolle deal!
             </p>
+            <Link className="btn btn-secondary" to="/huizen">
+              Bekijk ons huizen aanbod
+              <svg
+                width={24}
+                height={24}
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clipPath="url(#clip0_6_13426)">
+                  <path
+                    d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"
+                    fill="currentColor"
+                  />
+                </g>
+              </svg>
+            </Link>
           </div>
         </div>
         <div className="absolute top-0 left-0 w-full h-full bg-opacity-80 bg-black/50  min-h-[calc(100vh_-_100px)]"></div>
@@ -101,7 +118,7 @@ export default function Homepage({ loaderData }: Route.ComponentProps) {
           <p className="text-xl text-mocha-900">
             <img
               src="/IMG_2279.JPG"
-              className="float-left  max-w-80 pr-4 pb-4 lg:hidden"
+              className="float-left  sm:max-w-80 sm:pr-4 pb-4 lg:hidden w-full"
             />
             Met ruim 25 jaar ervaring in de makelaardij en 850+ geslaagde
             transacties zijn wij deskundig en hebben uitgebreide kennis van de
@@ -110,7 +127,21 @@ export default function Homepage({ loaderData }: Route.ComponentProps) {
           </p>
           <div className="w-full">
             <Link to="/makelaardij" className="btn btn-primary w-auto">
-              Lees meer over Makelaardij
+              Lees meer over Makelaardij{" "}
+              <svg
+                width={24}
+                height={24}
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clipPath="url(#clip0_6_13426)">
+                  <path
+                    d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"
+                    fill="currentColor"
+                  />
+                </g>
+              </svg>
             </Link>
           </div>
         </div>
@@ -139,7 +170,7 @@ export default function Homepage({ loaderData }: Route.ComponentProps) {
           <p className="text-xl text-mocha-900">
             <img
               src="/mediator.jpg"
-              className="float-right max-w-80 pl-4 pb-4 lg:hidden"
+              className="float-right   sm:max-w-80 sm:pl-4 pb-4 lg:hidden w-full"
             />
             Wij begrijpen dat er in zowel persoonlijke als zakelijke relaties
             conflicten kunnen ontstaan. Het is onze missie om u te helpen deze
@@ -150,7 +181,21 @@ export default function Homepage({ loaderData }: Route.ComponentProps) {
           </p>
           <div className="w-full">
             <Link to="/mediation" className="btn btn-primary w-auto">
-              Lees meer over Mediation
+              Lees meer over Mediation{" "}
+              <svg
+                width={24}
+                height={24}
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clipPath="url(#clip0_6_13426)">
+                  <path
+                    d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"
+                    fill="currentColor"
+                  />
+                </g>
+              </svg>
             </Link>
           </div>
         </div>

@@ -66,7 +66,7 @@ export default function Makelaardij({ loaderData }: Route.ComponentProps) {
             <ul className="flex flex-col gap-2 my-2">
               {diensten.map((item) => {
                 return (
-                  <li className="flex gap-2">
+                  <li className="flex gap-2" key={item}>
                     <div className="timeline-middle">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

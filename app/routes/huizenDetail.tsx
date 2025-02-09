@@ -90,6 +90,12 @@ export default function Huizen({ loaderData }: Route.ComponentProps) {
           <div className="max-w-md">
             <h1 className="mb-5 text-5xl font-bold mt-[30vh] backdrop-blur bg-black/40 backdrop-opacity-95 ">
               {huis?.adres.straat} {huis?.adres.huisnummer.hoofdnummer}
+              {huis.adres.huisnummer.toevoeging && (
+                <>
+                  {"-"}
+                  {huis.adres.huisnummer.toevoeging}
+                </>
+              )}
             </h1>
             <span className="text-sm font-medium backdrop-blur bg-black/40 backdrop-opacity-95 p-3">
               {huis?.adres.postcode} {huis?.adres.plaats}
@@ -115,7 +121,7 @@ export default function Huizen({ loaderData }: Route.ComponentProps) {
         >
           {huis?.media?.map((media, imageIndex) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide key={media.link}>
                 <figure>
                   <img
                     src={`${media.link}`}
@@ -155,6 +161,12 @@ export default function Huizen({ loaderData }: Route.ComponentProps) {
       <div className="container max-w-2xl flex flex-col gap-6 pb-20 px-5 lg:px-16 py-8 bg-white">
         <h2 className="flex-col gap-0 items-start">
           {huis?.adres.straat} {huis?.adres.huisnummer.hoofdnummer}
+          {huis.adres.huisnummer.toevoeging && (
+            <>
+              {"-"}
+              {huis.adres.huisnummer.toevoeging}
+            </>
+          )}
           <div className="text-sm font-normal">
             {huis?.adres.postcode} {huis?.adres.plaats}
           </div>
@@ -218,7 +230,7 @@ export default function Huizen({ loaderData }: Route.ComponentProps) {
         <div className="grid grid-cols-3 lg:grid-cols-5 gap-2 ">
           {huis?.media?.map((media, imageIndex) => {
             return (
-              <figure>
+              <figure key={media.link + "thumb"}>
                 <img
                   src={`${media.link}`}
                   className="cursor-zoom-in"

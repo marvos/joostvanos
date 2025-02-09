@@ -40,7 +40,7 @@ export function JvoFooter() {
           </p>
           <div className="grid grid-cols-2  items-start justify-center gap-4 pb-4">
             <a
-              href="tel:+31(0)206644511"
+              href="tel:+31206644511"
               className="btn btn-secondary  flex flex-nowrap"
             >
               <svg
@@ -60,7 +60,7 @@ export function JvoFooter() {
               020 6644511
             </a>
             <a
-              href="tel:+31(0)622691573"
+              href="tel:+31622691573"
               className="btn btn-secondary  flex flex-nowrap"
             >
               <svg

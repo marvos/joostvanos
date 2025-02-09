@@ -46,12 +46,26 @@ export default function Huizen({ loaderData }: Route.ComponentProps) {
             const overdrachtStatus = huis.financieel.overdracht.status
               ?.toLowerCase()
               ?.replace(/[^a-zA-Z0-9 ]/g, " ");
+            const huisUrl = `/huizen/detail/${huis.adres.plaats
+              ?.toLowerCase()
+              ?.replace(/[^a-zA-Z0-9 ]/g, "")}/${huis.adres.straat
+              ?.toLowerCase()
+              ?.replace(/[^a-zA-Z0-9 ]/g, "")
+              .replace(/\s+/g, "-")}${huis.adres.huisnummer.hoofdnummer
+              ?.toLowerCase()
+              ?.replace(/[^a-zA-Z0-9 ]/g, "")
+              .replace(/\s+/g, "-")}${
+              huis.adres.huisnummer.toevoeging
+                ? huis.adres.huisnummer.toevoeging
+                    ?.toLowerCase()
+                    ?.replace(/[^a-zA-Z0-9 ]/g, "")
+                    .replace(/\s+/g, "-")
+                : ""
+            }/${huis?.diversen.diversen.objectcode}`;
+
             if (overdrachtStatus !== "ingetrokken") {
               return (
-                <Link
-                  to={`/huizen/detail/${huis?.diversen.diversen.objectcode}`}
-                  key={huis.id}
-                >
+                <Link to={huisUrl} key={huis.id}>
                   <div className="card md:card-side bg-white shadow-xl">
                     <figure>
                       <img
@@ -63,6 +77,12 @@ export default function Huizen({ loaderData }: Route.ComponentProps) {
                     <div className="card-body px-6 py-4">
                       <h2 className="card-title flex-col gap-0 items-start">
                         {huis.adres.straat} {huis.adres.huisnummer.hoofdnummer}
+                        {huis.adres.huisnummer.toevoeging && (
+                          <>
+                            {"-"}
+                            {huis.adres.huisnummer.toevoeging}
+                          </>
+                        )}
                         <span className="text-sm font-normal">
                           {huis.adres.postcode} {huis.adres.plaats}
                         </span>

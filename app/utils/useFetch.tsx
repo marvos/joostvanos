@@ -1,6 +1,4 @@
 export const useFetch = async ({ url, method, body }: any): Promise<any> => {
-
-  console.log(body)
   return await fetch(url, {
     method,
     headers: {
@@ -25,14 +23,12 @@ export const useFetch = async ({ url, method, body }: any): Promise<any> => {
     });
 };
 export const useFetchRealWorks = async ({ url, method }: any): Promise<any> => {
-
   return await fetch(`${url}`, {
     method,
     headers: {
       "Content-Type": "application/json",
       Authorization: `rwauth 9d24c72c-38e6-4715-acef-45fa273c5e9c`,
     },
-
   })
     .then((response) => {
       if (response.status === 202) {

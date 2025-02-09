@@ -68,7 +68,7 @@ export function Welcome() {
               <br />
             </p>
             <div className="flex items-center justify-center gap-4 w-full">
-              <a href="tel:+31(0)206644511" className="btn btn-secondary ">
+              <a href="tel:+31206644511" className="btn btn-secondary ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -85,7 +85,7 @@ export function Welcome() {
                 </svg>
                 020 6644511
               </a>
-              <a href="tel:+31(0)622691573" className="btn btn-secondary ">
+              <a href="tel:+31622691573" className="btn btn-secondary ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"

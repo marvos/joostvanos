@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 
 export const Navbar = ({ inverted }: { inverted: boolean }) => {
   return (
@@ -39,6 +39,9 @@ export const Navbar = ({ inverted }: { inverted: boolean }) => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
             <li>
+              <Link to={"/"}>Home</Link>
+            </li>
+            <li>
               <Link to={"/makelaardij"}>Makelaardij</Link>
             </li>
             <li>
@@ -57,41 +60,91 @@ export const Navbar = ({ inverted }: { inverted: boolean }) => {
           }`}
         >
           <li>
-            <Link
-              className={`btn  btn-outline font-normal  border-0 ${
-                inverted ? "text-white" : " text-mocha-900"
-              } `}
+            <NavLink
+              className={({ isActive, isPending }) => {
+                {
+                  return `btn  btn-outline  border-0 ${
+                    inverted ? "text-white" : " text-mocha-900"
+                  } ${
+                    isPending
+                      ? " pending"
+                      : isActive
+                      ? " font-extrabold"
+                      : "font-normal "
+                  }`;
+                }
+              }}
+              to={"/"}
+            >
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={({ isActive, isPending }) => {
+                {
+                  return `btn  btn-outline  border-0 ${
+                    inverted ? "text-white" : " text-mocha-900"
+                  } ${
+                    isPending
+                      ? " pending"
+                      : isActive
+                      ? " font-extrabold"
+                      : "font-normal "
+                  }`;
+                }
+              }}
               to={"/makelaardij"}
             >
               Makelaardij
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link
-              className={`btn  btn-outline font-normal border-0 " ${
-                inverted ? "text-white" : " text-mocha-900"
-              } `}
+            <NavLink
+              className={({ isActive, isPending }) => {
+                {
+                  return `btn  btn-outline  border-0 ${
+                    inverted ? "text-white" : " text-mocha-900"
+                  } ${
+                    isPending
+                      ? " pending"
+                      : isActive
+                      ? " font-extrabold"
+                      : "font-normal "
+                  }`;
+                }
+              }}
               to={"/mediation"}
             >
               Mediation
-            </Link>
+            </NavLink>
           </li>
 
           <li>
-            <Link
-              className={`btn  btn-outline font-normal  border-0 ${
-                inverted ? "text-white" : " text-mocha-900"
-              } `}
+            <NavLink
+              className={({ isActive, isPending }) => {
+                {
+                  return `btn  btn-outline  border-0 ${
+                    inverted ? "text-white" : " text-mocha-900"
+                  } ${
+                    isPending
+                      ? " pending"
+                      : isActive
+                      ? " font-extrabold"
+                      : "font-normal "
+                  }`;
+                }
+              }}
               to={"/huizen"}
             >
               Huizen
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>
       <div className="navbar-end">
         <a
-          href="tel:+31(0)622691573"
+          href="tel:+31622691573"
           className={`btn  btn-outline font-normal border-0 " ${
             inverted ? "text-white" : " text-mocha-900"
           } `}

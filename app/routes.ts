@@ -10,7 +10,7 @@ export default [
   layout("layouts/main.tsx", [
     route("styleguide", "routes/styleguide.tsx"),
     route("huizen", "routes/huizen.tsx"),
-    route("huizen/detail/:objectcode", "routes/huizenDetail.tsx"),
+    route("huizen/detail/:stad/:straat/:objectcode", "routes/huizenDetail.tsx"),
     route("makelaardij", "routes/makelaardij.tsx"),
     route("mediation", "routes/mediation.tsx"),
     route("admin", "routes/admin.tsx"),
