@@ -17,7 +17,15 @@ export async function loader({ request, context }: Route.LoaderArgs) {
     url: `${context.cloudflare.env.API_JOOST}/kv/values/huizen`,
     method: "GET",
   });
-  return { resultaten: objecten?.resultaten };
+  return {
+    resultaten: objecten?.resultaten.sort((a, b) => {
+      const statusA = a.financieel.overdracht.status.toLowerCase();
+      const statusB = b.financieel.overdracht.status.toLowerCase();
+      if (statusA < statusB) return -1;
+      if (statusA > statusB) return 1;
+      return 0;
+    }),
+  };
 }
 
 export default function Huizen({ loaderData }: Route.ComponentProps) {
@@ -63,13 +71,16 @@ export default function Huizen({ loaderData }: Route.ComponentProps) {
                 : ""
             }/${huis?.diversen.diversen.objectcode}`;
 
+            const mainImage = huis.media.find(
+              (item) => item.soort === "HOOFDFOTO"
+            );
             if (overdrachtStatus !== "ingetrokken") {
               return (
                 <Link to={huisUrl} key={huis.id}>
                   <div className="card md:card-side bg-white shadow-xl">
                     <figure>
                       <img
-                        src={`${huis.media[0].link}&resize=4`}
+                        src={`${mainImage.link}&resize=4`}
                         className="object-fill w-full sm:h-full  sm:max-h-full sm:w-96"
                       />
                     </figure>

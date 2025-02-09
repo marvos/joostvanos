@@ -56,7 +56,7 @@ export default function Makelaardij({ loaderData }: Route.ComponentProps) {
             kunnen wij u snel en effectief helpen bij al uw vastgoedvragen.
           </p>
           <p>
-            Wij begrijpen we dat het kopen of verkopen van een huis een van de
+            Wij begrijpen dat het kopen of verkopen van een huis een van de
             belangrijkste beslissingen in uw leven is. Daarom staan wij klaar om
             u te begeleiden met ruim 25 jaar ervaring, gedegen deskundigheid,
             persoonlijke aandacht en een grote passie voor het vak.

@@ -72,6 +72,7 @@ export async function loader({ request, context, params }: Route.LoaderArgs) {
 export default function Huizen({ loaderData }: Route.ComponentProps) {
   // const huis: Resultaten = useLoaderData<typeof clientLoader>();
   const { huis } = loaderData;
+  const mainImage = huis?.media.find((item) => item.soort === "HOOFDFOTO");
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(-1);
   const overdrachtStatus = huis?.financieel?.overdracht?.status
@@ -82,7 +83,7 @@ export default function Huizen({ loaderData }: Route.ComponentProps) {
       <div
         className="hero min-h-[50vh]"
         style={{
-          backgroundImage: `url(${huis?.media[0].link}&resize=4)`,
+          backgroundImage: `url(${mainImage.link}&resize=4)`,
         }}
       >
         <div className="hero-overlay bg-black bg-opacity-20"></div>

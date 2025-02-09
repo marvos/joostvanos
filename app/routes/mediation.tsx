@@ -42,13 +42,13 @@ export default function Mediation({ loaderData }: Route.ComponentProps) {
             Met onze professionele begeleiding creëren we een onpartijdige en{" "}
             <span className="font-bold">veilige omgeving</span> waarin alle
             betrokken partijen hun zorgen en wensen kunnen uiten om zo meer{" "}
-            <span className="font-bold">begrip</span>
-            voor elkaars standpunten te krijgen en daarmee tot een{" "}
+            <span className="font-bold">begrip </span> voor elkaars standpunten
+            te krijgen en daarmee tot een{" "}
             <span className="font-bold">duurzame oplossing</span> te kunnen
             komen.
           </p>
           <h2 className="text-xl font-bold">
-            Onze Diensten op het gebied van vastgoed mediation:
+            Onze diensten op het gebied van vastgoed mediation:
           </h2>
           <ul className="flex flex-col gap-2 my-2">
             <li className="flex gap-2">
@@ -67,9 +67,9 @@ export default function Mediation({ loaderData }: Route.ComponentProps) {
                 </svg>
               </div>
               <div className="text-lg ">
-                <span className="font-bold">Aan- verkoop:</span> begeleiding bij
-                het oplossen van conflicten ontstaan tussen partijen bij aan-
-                verkoop van alle soorten vastgoed.
+                <span className="font-bold">Aan- en verkoop:</span> begeleiding
+                bij het oplossen van conflicten ontstaan tussen partijen bij
+                aan- verkoop van alle soorten vastgoed.
               </div>
             </li>
             <li className="flex gap-2">
@@ -108,8 +108,8 @@ export default function Mediation({ loaderData }: Route.ComponentProps) {
                 </svg>
               </div>
               <div className="text-lg ">
-                <span className="font-bold">Aan- verhuur:</span> begeleiden bij
-                huurgeschillen tussen huurder en verhuurder.
+                <span className="font-bold">Aan- en verhuur:</span> begeleiden
+                bij huurgeschillen tussen huurder en verhuurder.
               </div>
             </li>
             <li className="flex gap-2">
