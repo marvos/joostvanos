@@ -117,6 +117,54 @@ export default function Homepage({ loaderData }: Route.ComponentProps) {
         </div>
         <div className="absolute top-0 left-0 w-full h-full bg-opacity-80 bg-black/50  min-h-[calc(100vh_-_100px)]"></div>
       </div>
+
+      <div className="lg:h-[50vh] lg:grid lg:grid-cols-2">
+        <div
+          className="h-[50vh] bg-cover bg-no-repeat bg-center relative  hidden lg:block"
+          style={{
+            backgroundImage: "url(/IMG_2283.JPG)",
+          }}
+        ></div>
+        <div className="p-8 lg:p-20 flex flex-col gap-4 items-center justify-center">
+          <h2 className="text-2xl font-medium w-full">
+            Waarom kiezen voor{" "}
+            <span className=" font-bold">Joost van Os Vastgoed Mediation?</span>
+          </h2>
+          <p className="text-xl text-mocha-900">
+            <img
+              src="/IMG_2283.JPG"
+              className="float-right  sm:max-w-80 sm:pl-4 pb-4 lg:hidden w-full"
+            />
+            <p>
+              Wij begrijpen dat er in zowel persoonlijke als zakelijke relaties
+              conflicten kunnen ontstaan. Het is onze missie om u te helpen deze
+              conflicten op een <span className="font-bold">constructieve</span>{" "}
+              en <span className="font-bold">effectieve</span> manier op te
+              lossen.
+            </p>
+          </p>
+          <div className="w-full">
+            <Link to="/vastgoed-mediation" className="btn btn-primary w-auto">
+              Lees meer over Vastgoed Mediation{" "}
+              <svg
+                width={24}
+                height={24}
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clipPath="url(#clip0_6_13426)">
+                  <path
+                    d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"
+                    fill="currentColor"
+                  />
+                </g>
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </div>
+      <hr />
       <div className="lg:h-[50vh] lg:grid lg:grid-cols-2">
         <div className="p-8 lg:p-20 flex flex-col gap-4 items-center justify-center">
           <h2 className="text-2xl font-medium w-full">
@@ -180,12 +228,15 @@ export default function Homepage({ loaderData }: Route.ComponentProps) {
               src="/mediator.jpg"
               className="float-right   sm:max-w-80 sm:pl-4 pb-4 lg:hidden w-full"
             />
-            Wij begrijpen dat er in zowel persoonlijke als zakelijke relaties
-            conflicten kunnen ontstaan. Het is onze missie om u te helpen deze
-            conflicten op een <span className="font-bold">constructieve</span>{" "}
-            en <span className="font-bold">effectieve</span> manier op te
-            lossen.
-            <br />
+            <p>
+              Met onze professionele begeleiding creëren we een onpartijdige en{" "}
+              <span className="font-bold">veilige omgeving</span> waarin alle
+              betrokken partijen hun zorgen en wensen kunnen uiten om zo meer{" "}
+              <span className="font-bold">begrip </span> voor elkaars
+              standpunten te krijgen en daarmee tot een{" "}
+              <span className="font-bold">duurzame oplossing</span> te kunnen
+              komen.
+            </p>
           </p>
           <div className="w-full">
             <Link to="/mediation" className="btn btn-primary w-auto">
