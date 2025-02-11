@@ -83,9 +83,9 @@ export default function VastgoedMediation({
             samenwerking en communicatie centraal staan. In plaats van een
             conflict te laten juridiseren of voor de rechter uit te vechten,
             zoeken de partijen onder begeleiding van een mediator naar een
-            gezamenlijke oplossing. Dit proces is nuttig bij geschillen
-            bijnaan/verkoop, huurgeschillen, VvE kwesties, onenigheid of de
-            waarde van vastgoed etc.
+            gezamenlijke oplossing. Dit proces is nuttig bij geschillen bij
+            aan/verkoop, huurgeschillen, VvE kwesties, onenigheid of de waarde
+            van vastgoed etc.
           </p>
           <p>
             Mediation biedt diverse voordelen ten opzichte van traditionele
