@@ -82,7 +82,7 @@ export default function Homepage({ loaderData }: Route.ComponentProps) {
             <p className="mb-5 font-thin spa text-mocha-50 text-5xl tracking-wider">
               {/*Joost van Os Makelaardij & Mediation<br />*/}
               We zien uit naar
-              <br /> onze samenwerking!
+              <br /> een succesvolle samenwerking!
             </p>
             <Link className="btn btn-secondary" to="/huizen">
               Bekijk ons huizen aanbod
