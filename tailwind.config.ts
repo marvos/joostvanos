@@ -142,7 +142,7 @@ const tailwindconfig = {
       },
     },
   },
-  plugins: [require("@tailwindcss/typography"), require("daisyui")],
+  plugins: [require("@tailwindcss/typography")],
 };
 const daisyconfig = {
   daisyui: {
@@ -187,4 +187,4 @@ const daisyconfig = {
 };
 
 
-export default { ...tailwindconfig, ...daisyconfig } satisfies Config;
+export default { ...tailwindconfig} satisfies Config;
