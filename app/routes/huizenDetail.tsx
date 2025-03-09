@@ -53,9 +53,9 @@ export async function loader({ request, context, params }: Route.LoaderArgs) {
  * Generates comprehensive metadata for SEO optimization
  * Includes property details, features, price and status information
  */
-export function meta({ loaderData }: Route.MetaArgs) {
+export function meta({ data }: Route.MetaArgs) {
   // Check if loaderData exists and has the huis property
-  if (!loaderData || !loaderData.huis) {
+  if (!data || !data.huis) {
     return [
       { title: "Woning details - Joost van Os Makelaardij" },
       {
@@ -65,7 +65,7 @@ export function meta({ loaderData }: Route.MetaArgs) {
     ];
   }
 
-  const { huis } = loaderData;
+  const { huis } = data;
 
   // Format the property status
   const status = huis.financieel?.overdracht?.status
