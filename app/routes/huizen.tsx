@@ -99,7 +99,7 @@ const PropertyCard = ({ huis }: { huis: Resultaten }) => {
       case "beschikbaar":
         return "badge-success";
       case "verkocht":
-        return "badge-neutral";
+        return "badge-neutral text-black";
       case "verkocht onder voorbehoud":
         return "badge-warning";
       default:
