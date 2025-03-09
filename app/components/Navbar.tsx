@@ -1,22 +1,43 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { Link, NavLink } from "react-router";
 
+/**
+ * Navigation bar component that adapts to light/dark mode
+ * @param {Object} props - Component props
+ * @param {boolean} props.inverted - Whether to display in inverted (dark) mode
+ * @returns {JSX.Element} Responsive navigation bar
+ */
 export const Navbar = ({ inverted }: { inverted: boolean }) => {
-  const handleMenuCloseClick = () => {
+  // Function to close dropdown menu when an item is clicked
+  const handleMenuCloseClick = useCallback(() => {
     const elem = document.activeElement;
     if (elem) {
       elem?.blur();
     }
-  };
+  }, []);
+
+  // Common NavLink styling logic to reduce duplication
+  const getNavLinkClassName = useCallback(
+    ({ isActive, isPending }) => {
+      return `btn btn-outline border-0 ${
+        inverted ? "text-white hover:text-mocha-900" : "text-mocha-900"
+      } ${isPending ? "pending" : isActive ? "font-extrabold" : "font-normal"}`;
+    },
+    [inverted]
+  );
+
   return (
     <div
-      className={`navbar fixed z-30 px-4  shadow-2xl ${
-        inverted ? "bg-black/30" : " bg-base-200 "
-      } `}
+      className={`navbar fixed z-30 px-4 shadow-2xl ${
+        inverted ? "bg-black/30" : "bg-base-100"
+      }`}
     >
+      {/* Logo/Home button */}
       <Link to={"/"} className="btn btn-ghost text-xl p-0">
         <img src="/logo.png" alt="logo" className="max-w-[45px] h-auto" />
       </Link>
+
+      {/* Mobile navigation */}
       <div className="navbar-start">
         <div className="dropdown">
           <div
@@ -24,7 +45,7 @@ export const Navbar = ({ inverted }: { inverted: boolean }) => {
             role="button"
             className={`btn btn-ghost lg:hidden ${
               inverted ? "text-white" : ""
-            } `}
+            }`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +64,7 @@ export const Navbar = ({ inverted }: { inverted: boolean }) => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow-sm"
           >
             <li>
               <Link to={"/"}>Home</Link>
@@ -68,106 +89,55 @@ export const Navbar = ({ inverted }: { inverted: boolean }) => {
           </ul>
         </div>
       </div>
+
+      {/* Desktop navigation */}
       <div className="navbar-center hidden lg:flex">
         <ul
-          className={`menu menu-horizontal px-1 text-md  gap-2 ${
+          className={`menu menu-horizontal px-1 text-md gap-2 ${
             inverted ? "text-white" : "text-mocha-50"
           }`}
         >
           <li>
-            <NavLink
-              className={({ isActive, isPending }) => {
-                {
-                  return `btn  btn-outline  border-0 ${
-                    inverted ? "text-white" : " text-mocha-900"
-                  } ${
-                    isPending
-                      ? " pending"
-                      : isActive
-                      ? " font-extrabold"
-                      : "font-normal "
-                  }`;
-                }
-              }}
-              to={"/"}
-            >
+            <NavLink className={getNavLinkClassName} to={"/"}>
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink
-              className={({ isActive, isPending }) => {
-                {
-                  return `btn  btn-outline  border-0 ${
-                    inverted ? "text-white" : " text-mocha-900"
-                  } ${
-                    isPending
-                      ? " pending"
-                      : isActive
-                      ? " font-extrabold"
-                      : "font-normal "
-                  }`;
-                }
-              }}
-              to={"/makelaardij"}
-            >
+            <NavLink className={getNavLinkClassName} to={"/makelaardij"}>
               Makelaardij
             </NavLink>
           </li>
 
+          {/* Dropdown menu for Mediation */}
           <li className="dropdown">
             <label
               tabIndex={0}
-              className={`btn  btn-outline leading-8  border-0 ${
-                inverted ? "text-white" : " text-mocha-900"
+              className={`btn btn-outline leading-8 border-0 ${
+                inverted ? "text-white hover:text-mocha-900" : "text-mocha-900"
               }`}
             >
               Mediation
             </label>
             <ul
               tabIndex={0}
-              className={`dropdown-content menu p-2 shadow rounded-box w-52  ${
-                inverted ? " bg-black " : "  bg-base-200 "
+              className={`dropdown-content menu p-2 shadow rounded-box w-52 ${
+                inverted ? "bg-black" : "bg-base-100"
               }`}
             >
               <li>
                 <NavLink
-                  className={({ isActive, isPending }) => {
-                    {
-                      return `btn  btn-outline  border-0 ${
-                        inverted ? "text-white" : " text-mocha-900"
-                      } ${
-                        isPending
-                          ? " pending"
-                          : isActive
-                          ? " font-extrabold"
-                          : "font-normal "
-                      }`;
-                    }
-                  }}
+                  className={getNavLinkClassName}
                   to={"/vastgoed-mediation"}
-                  onClick={(e) => handleMenuCloseClick}
+                  onClick={handleMenuCloseClick}
                 >
                   Vastgoed mediation
                 </NavLink>
               </li>
               <li>
                 <NavLink
-                  className={({ isActive, isPending }) => {
-                    {
-                      return `btn  btn-outline  border-0 ${
-                        inverted ? "text-white" : " text-mocha-900"
-                      } ${
-                        isPending
-                          ? " pending"
-                          : isActive
-                          ? " font-extrabold"
-                          : "font-normal "
-                      }`;
-                    }
-                  }}
+                  className={getNavLinkClassName}
                   to={"/mediation"}
-                  onClick={(e) => handleMenuCloseClick}
+                  onClick={handleMenuCloseClick}
                 >
                   Mediation diensten
                 </NavLink>
@@ -176,33 +146,20 @@ export const Navbar = ({ inverted }: { inverted: boolean }) => {
           </li>
 
           <li>
-            <NavLink
-              className={({ isActive, isPending }) => {
-                {
-                  return `btn  btn-outline  border-0 ${
-                    inverted ? "text-white" : " text-mocha-900"
-                  } ${
-                    isPending
-                      ? " pending"
-                      : isActive
-                      ? " font-extrabold"
-                      : "font-normal "
-                  }`;
-                }
-              }}
-              to={"/huizen"}
-            >
+            <NavLink className={getNavLinkClassName} to={"/huizen"}>
               Huizen
             </NavLink>
           </li>
         </ul>
       </div>
+
+      {/* Contact button */}
       <div className="navbar-end">
         <a
           href="tel:+31622691573"
-          className={`btn  btn-outline font-normal border-0 " ${
-            inverted ? "text-white" : " text-mocha-900"
-          } `}
+          className={`btn btn-outline font-normal border-0 ${
+            inverted ? "text-white" : "text-mocha-900"
+          }`}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

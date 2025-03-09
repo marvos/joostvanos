@@ -178,7 +178,7 @@ export default function Styleguide() {
               </label>
               <ul
                 tabIndex={0}
-                className="dropdown-content menu p-2 shadow rounded-box w-52"
+                className="dropdown-content menu p-2 shadow-sm rounded-box w-52"
               >
                 <li>
                   <a>Item 1</a>
@@ -469,7 +469,7 @@ export default function Styleguide() {
                   </div>
                 </div>
                 <div className="flex gap-3">
-                  <div className="flex flex-grow flex-col gap-3">
+                  <div className="flex grow flex-col gap-3">
                     <div className="text-4xl font-bold">Text Size 1</div>
                     <div className="text-3xl font-bold">Text Size 2</div>
                     <div className="text-2xl font-bold">Text Size 3</div>
@@ -493,7 +493,7 @@ export default function Styleguide() {
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
-                      className="stroke-info h-6 w-6 flex-shrink-0"
+                      className="stroke-info h-6 w-6 shrink-0"
                     >
                       <path
                         strokeLinecap="round"
@@ -511,7 +511,7 @@ export default function Styleguide() {
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
-                      className="h-6 w-6 flex-shrink-0 stroke-current"
+                      className="h-6 w-6 shrink-0 stroke-current"
                     >
                       <path
                         strokeLinecap="round"
@@ -527,7 +527,7 @@ export default function Styleguide() {
                   <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6 flex-shrink-0 stroke-current"
+                      className="h-6 w-6 shrink-0 stroke-current"
                       fill="none"
                       viewBox="0 0 24 24"
                     >
@@ -545,7 +545,7 @@ export default function Styleguide() {
                   <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6 flex-shrink-0 stroke-current"
+                      className="h-6 w-6 shrink-0 stroke-current"
                       fill="none"
                       viewBox="0 0 24 24"
                     >
@@ -563,7 +563,7 @@ export default function Styleguide() {
                   <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6 flex-shrink-0 stroke-current"
+                      className="h-6 w-6 shrink-0 stroke-current"
                       fill="none"
                       viewBox="0 0 24 24"
                     >
@@ -665,49 +665,49 @@ export default function Styleguide() {
             </div>
             <button
               type="button"
-              className="textWhite bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              className="textWhite bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-hidden dark:focus:ring-blue-800"
             >
               Default
             </button>
             <button
               type="button"
-              className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 dark:text-gray-300 focus:outline-none bgWhite rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:textWhite dark:hover:bg-gray-700"
+              className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 dark:text-gray-300 focus:outline-hidden bgWhite rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:textWhite dark:hover:bg-gray-700"
             >
               Alternative
             </button>
             <button
               type="button"
-              className="textWhite bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+              className="textWhite bg-gray-800 hover:bg-gray-900 focus:outline-hidden focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
             >
               Dark
             </button>
             <button
               type="button"
-              className="text-gray-900 dark:text-gray-300 bgWhite border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:textWhite dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+              className="text-gray-900 dark:text-gray-300 bgWhite border border-gray-300 focus:outline-hidden hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:textWhite dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
             >
               Light
             </button>
             <button
               type="button"
-              className="focus:outline-none textWhite bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+              className="focus:outline-hidden textWhite bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
             >
               Green
             </button>
             <button
               type="button"
-              className="focus:outline-none textWhite bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+              className="focus:outline-hidden textWhite bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
             >
               Red
             </button>
             <button
               type="button"
-              className="focus:outline-none textWhite bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900"
+              className="focus:outline-hidden textWhite bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900"
             >
               Yellow
             </button>
             <button
               type="button"
-              className="focus:outline-none textWhite bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
+              className="focus:outline-hidden textWhite bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
             >
               Purple
             </button>

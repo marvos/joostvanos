@@ -1,11 +1,14 @@
 import type { Route } from "./+types/homepage";
 import { Navbar } from "~/components/Navbar";
 import { JvoFooter } from "~/components/jvoFooter";
-
 import type { Objecten } from "~/utils/object-types";
 import { useFetch } from "~/utils/useFetch";
 import { Link } from "react-router";
+import { memo } from "react";
 
+/**
+ * Metadata for the homepage
+ */
 export function meta({}: Route.MetaArgs) {
   return [
     { title: "Joost van Os Makelaardij & Mediation" },
@@ -17,32 +20,125 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
+/**
+ * Data loader for the homepage
+ * Fetches property listings from the API
+ */
 export async function loader({ request, context }: Route.LoaderArgs) {
+  // Fetch available properties from API
   const objecten: Objecten = await useFetch({
     request,
     context,
     url: `${context.cloudflare.env.API_JOOST}/kv/values/huizen`,
     method: "GET",
   });
+
   return {
     resultaten: objecten?.resultaten,
     message: context.cloudflare.env.VALUE_FROM_CLOUDFLARE,
   };
-  return { message: context.cloudflare.env.VALUE_FROM_CLOUDFLARE };
 }
+
+// Arrow icon component for consistent usage throughout the page
+const ArrowIcon = memo(() => (
+  <svg
+    width={24}
+    height={24}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+  >
+    <g clipPath="url(#clip0_6_13426)">
+      <path
+        d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"
+        fill="currentColor"
+      />
+    </g>
+  </svg>
+));
+ArrowIcon.displayName = "ArrowIcon";
+
+/**
+ * Section component for content blocks to reduce repetition
+ */
+const ContentSection = memo(
+  ({
+    imageUrl,
+    imagePosition = "right",
+    title,
+    boldTitle,
+    children,
+    linkText,
+    linkUrl,
+  }: any) => {
+    const isImageRight = imagePosition === "right";
+
+    return (
+      <div className="lg:h-[50vh] lg:grid lg:grid-cols-2">
+        {!isImageRight && (
+          <div
+            className="h-[50vh] bg-cover bg-no-repeat bg-center relative hidden lg:block"
+            style={{ backgroundImage: `url(${imageUrl})` }}
+            aria-hidden="true"
+          />
+        )}
+
+        <div className="p-8 lg:p-20 flex flex-col gap-4 items-center justify-center">
+          <h2 className="text-2xl font-medium w-full">
+            {title} <span className="font-bold">{boldTitle}</span>
+          </h2>
+          <div className="text-xl text-mocha-900">
+            <img
+              src={imageUrl}
+              alt=""
+              className={`float-${
+                isImageRight ? "right" : "left"
+              } sm:max-w-80 sm:p${
+                isImageRight ? "l" : "r"
+              }-4 pb-4 lg:hidden w-full`}
+            />
+            {children}
+          </div>
+          <div className="w-full">
+            <Link to={linkUrl} className="btn btn-primary w-auto">
+              {linkText} <ArrowIcon />
+            </Link>
+          </div>
+        </div>
+
+        {isImageRight && (
+          <div
+            className="h-[50vh] bg-cover bg-no-repeat bg-center relative hidden lg:block"
+            style={{ backgroundImage: `url(${imageUrl})` }}
+            aria-hidden="true"
+          />
+        )}
+      </div>
+    );
+  }
+);
+ContentSection.displayName = "ContentSection";
+
+/**
+ * Main homepage component
+ */
 export default function Homepage({ loaderData }: Route.ComponentProps) {
   const { resultaten } = loaderData;
+
   return (
     <>
+      {/* Navigation with inverted colors for the hero section */}
       <Navbar inverted={true} />
+
+      {/* Hero section with background image */}
       <div
-        className="min-h-[calc(100vh_-_100px)] bg-cover bg-no-repeat relative "
-        style={{
-          backgroundImage: "url(/canals.webp)",
-        }}
+        className="min-h-[calc(100vh_-_100px)] bg-cover bg-no-repeat relative"
+        style={{ backgroundImage: "url(/canals.webp)" }}
       >
-        <div className=" container flex flex-col text-neutral-content text-center items-center justify-around h-full min-h-[calc(100vh_-_100px)] pt-[64px] gap-8">
-          <div className="flex items-center justify-between w-full  space-y-4 p-4  max-w-[400px] mx-auto z-10">
+        <div className="container flex flex-col text-neutral-content text-center items-center justify-around h-full min-h-[calc(100vh_-_100px)] pt-[64px] gap-8">
+          {/* Logo section */}
+          <div className="flex items-center justify-between w-full space-y-4 p-4 max-w-[400px] mx-auto z-10">
             <svg
               width={1462}
               height={482}
@@ -50,7 +146,9 @@ export default function Homepage({ loaderData }: Route.ComponentProps) {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               className="logo-dark lg:w-full max-w-[500px] w-[260px] max-h-32 ml-auto lg:m-auto block"
+              aria-label="Joost van Os logo"
             >
+              {/* SVG path elements - truncated for brevity */}
               <rect
                 x={5}
                 y={5}
@@ -78,175 +176,77 @@ export default function Homepage({ loaderData }: Route.ComponentProps) {
               />
             </svg>
           </div>
-          <div className="max-w-xl  z-10">
-            <p className="mb-5 font-thin spa text-mocha-50 text-5xl tracking-wider">
-              {/*Joost van Os Makelaardij & Mediation<br />*/}
+
+          {/* Hero content and CTA */}
+          <div className="max-w-xl z-10">
+            <h1 className="mb-5 font-thin text-mocha-50 text-5xl tracking-wider">
               We zien uit naar
               <br /> een succesvolle samenwerking!
-            </p>
+            </h1>
             <Link className="btn btn-secondary" to="/huizen">
               Bekijk ons huizen aanbod
-              <svg
-                width={24}
-                height={24}
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g clipPath="url(#clip0_6_13426)">
-                  <path
-                    d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"
-                    fill="currentColor"
-                  />
-                </g>
-              </svg>
+              <ArrowIcon />
             </Link>
           </div>
         </div>
-        <div className="absolute top-0 left-0 w-full h-full bg-opacity-80 bg-black/50  min-h-[calc(100vh_-_100px)]"></div>
+
+        {/* Dark overlay for better text readability */}
+        <div className="absolute top-0 left-0 w-full h-full bg-black/50 min-h-[calc(100vh_-_100px)]"></div>
       </div>
 
-      <div className="lg:h-[50vh] lg:grid lg:grid-cols-2">
-        <div
-          className="h-[50vh] bg-cover bg-no-repeat bg-center relative  hidden lg:block"
-          style={{
-            backgroundImage: "url(/IMG_2283.JPG)",
-          }}
-        ></div>
-        <div className="p-8 lg:p-20 flex flex-col gap-4 items-center justify-center">
-          <h2 className="text-2xl font-medium w-full">
-            Waarom kiezen voor{" "}
-            <span className=" font-bold">Joost van Os Vastgoed Mediation?</span>
-          </h2>
-          <p className="text-xl text-mocha-900">
-            <img
-              src="/IMG_2283.JPG"
-              className="float-right  sm:max-w-80 sm:pl-4 pb-4 lg:hidden w-full"
-            />
-            <p>
-              Wij begrijpen dat er in zowel persoonlijke als zakelijke relaties
-              conflicten kunnen ontstaan. Het is onze missie om u te helpen deze
-              conflicten op een <span className="font-bold">constructieve</span>{" "}
-              en <span className="font-bold">effectieve</span> manier op te
-              lossen.
-            </p>
-          </p>
-          <div className="w-full">
-            <Link to="/vastgoed-mediation" className="btn btn-primary w-auto">
-              Lees meer over Vastgoed Mediation{" "}
-              <svg
-                width={24}
-                height={24}
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g clipPath="url(#clip0_6_13426)">
-                  <path
-                    d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"
-                    fill="currentColor"
-                  />
-                </g>
-              </svg>
-            </Link>
-          </div>
-        </div>
-      </div>
-      <hr />
-      <div className="lg:h-[50vh] lg:grid lg:grid-cols-2">
-        <div className="p-8 lg:p-20 flex flex-col gap-4 items-center justify-center">
-          <h2 className="text-2xl font-medium w-full">
-            Waarom kiezen voor{" "}
-            <span className=" font-bold">Joost van Os Makelaardij?</span>
-          </h2>
-          <p className="text-xl text-mocha-900">
-            <img
-              src="/IMG_2279.JPG"
-              className="float-left  sm:max-w-80 sm:pr-4 pb-4 lg:hidden w-full"
-            />
-            Met ruim 25 jaar ervaring in de makelaardij en 850+ geslaagde
-            transacties zijn wij deskundig en hebben uitgebreide kennis van de
-            lokale vastgoedmarkt.
-            <br />
-          </p>
-          <div className="w-full">
-            <Link to="/makelaardij" className="btn btn-primary w-auto">
-              Lees meer over Makelaardij{" "}
-              <svg
-                width={24}
-                height={24}
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g clipPath="url(#clip0_6_13426)">
-                  <path
-                    d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"
-                    fill="currentColor"
-                  />
-                </g>
-              </svg>
-            </Link>
-          </div>
-        </div>
-        <div
-          className="h-[50vh] bg-cover bg-no-repeat bg-center relative  hidden lg:block"
-          style={{
-            backgroundImage: "url(/IMG_2279.JPG)",
-          }}
-        ></div>
-      </div>
-      <hr />
-      <div className="lg:h-[50vh] lg:grid lg:grid-cols-2">
-        <div
-          className="h-[50vh] bg-cover bg-no-repeat bg-center hidden lg:block "
-          style={{
-            backgroundImage: "url(/mediator.jpg)",
-            // backgroundImage: "url(/IMG_2283.JPG)",
-          }}
-        ></div>
+      {/* Vastgoed Mediation section */}
+      <ContentSection
+        imageUrl="/IMG_2283.JPG"
+        title="Waarom kiezen voor"
+        boldTitle="Joost van Os Vastgoed Mediation?"
+        linkText="Lees meer over Vastgoed Mediation"
+        linkUrl="/vastgoed-mediation"
+      >
+        <p>
+          Wij begrijpen dat er in zowel persoonlijke als zakelijke relaties
+          conflicten kunnen ontstaan. Het is onze missie om u te helpen deze
+          conflicten op een <span className="font-bold">constructieve</span> en{" "}
+          <span className="font-bold">effectieve</span> manier op te lossen.
+        </p>
+      </ContentSection>
 
-        <div className="p-8 lg:p-20 flex flex-col gap-4 items-center justify-center">
-          <h2 className="text-2xl font-medium w-full">
-            Waarom kiezen voor{" "}
-            <span className=" font-bold"> Joost van Os Mediation?</span>
-          </h2>
-          <p className="text-xl text-mocha-900">
-            <img
-              src="/mediator.jpg"
-              className="float-right   sm:max-w-80 sm:pl-4 pb-4 lg:hidden w-full"
-            />
-            <p>
-              Met onze professionele begeleiding creëren we een onpartijdige en{" "}
-              <span className="font-bold">veilige omgeving</span> waarin alle
-              betrokken partijen hun zorgen en wensen kunnen uiten om zo meer{" "}
-              <span className="font-bold">begrip </span> voor elkaars
-              standpunten te krijgen en daarmee tot een{" "}
-              <span className="font-bold">duurzame oplossing</span> te kunnen
-              komen.
-            </p>
-          </p>
-          <div className="w-full">
-            <Link to="/mediation" className="btn btn-primary w-auto">
-              Lees meer over Mediation{" "}
-              <svg
-                width={24}
-                height={24}
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g clipPath="url(#clip0_6_13426)">
-                  <path
-                    d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"
-                    fill="currentColor"
-                  />
-                </g>
-              </svg>
-            </Link>
-          </div>
-        </div>
-      </div>
+      <hr />
+
+      {/* Makelaardij section */}
+      <ContentSection
+        imageUrl="/IMG_2279.JPG"
+        imagePosition="left"
+        title="Waarom kiezen voor"
+        boldTitle="Joost van Os Makelaardij?"
+        linkText="Lees meer over Makelaardij"
+        linkUrl="/makelaardij"
+      >
+        Met ruim 25 jaar ervaring in de makelaardij en 850+ geslaagde
+        transacties zijn wij deskundig en hebben uitgebreide kennis van de
+        lokale vastgoedmarkt.
+      </ContentSection>
+
+      <hr />
+
+      {/* Mediation section */}
+      <ContentSection
+        imageUrl="/mediator.jpg"
+        title="Waarom kiezen voor"
+        boldTitle="Joost van Os Mediation?"
+        linkText="Lees meer over Mediation"
+        linkUrl="/mediation"
+      >
+        <p>
+          Met onze professionele begeleiding creëren we een onpartijdige en{" "}
+          <span className="font-bold">veilige omgeving</span> waarin alle
+          betrokken partijen hun zorgen en wensen kunnen uiten om zo meer{" "}
+          <span className="font-bold">begrip </span> voor elkaars standpunten te
+          krijgen en daarmee tot een{" "}
+          <span className="font-bold">duurzame oplossing</span> te kunnen komen.
+        </p>
+      </ContentSection>
+
+      {/* Footer component */}
       <JvoFooter />
     </>
   );

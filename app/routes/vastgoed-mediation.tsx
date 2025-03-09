@@ -23,7 +23,7 @@ export default function VastgoedMediation({
           backgroundImage: "url(/bgvastgoed-meidation.jpg)",
         }}
       >
-        <div className="hero-overlay bg-black bg-opacity-60"></div>
+        <div className="hero-overlay bg-black/60"></div>
         <div className="hero-content text-neutral-content text-center items-end justify-end">
           <div className="max-w-md">
             <h1 className="mb-5 text-5xl font-bold mt-[20vh]">

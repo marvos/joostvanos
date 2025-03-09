@@ -1,9 +1,192 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap")
+layer(base);
 
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: false;
+}
+@custom-variant dark (&:where([data-theme="light"], [data-theme="light"] *));
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@theme {
+  --text-*: initial;
+  --text-xxs: 0.875rem;
+  --text-xs: 0.875rem;
+  --text-sm: 1rem;
+  --text-base: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.75rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 2.75rem;
+
+  --color-*: initial;
+  --color-mocha-50: #f1f0e2;
+  --color-mocha-100: #e4c7b7;
+  --color-mocha-200: #bbaa91;
+  --color-mocha-300: #c39d88;
+  --color-mocha-400: #a47864;
+  --color-mocha-500: #a28776;
+  --color-mocha-600: #8b645a;
+  --color-mocha-700: #56443f;
+  --color-mocha-800: #3c302c;
+  --color-mocha-900: #211814;
+
+  --color-transparent: transparent;
+  --color-current: currentColor;
+  --color-black: #000;
+  --color-white: #fff;
+
+  --color-blue-50: #e7e9fa;
+  --color-blue-100: #b0b6ef;
+  --color-blue-200: #7983e5;
+  --color-blue-300: #4251da;
+  --color-blue-400: #0b1ecf;
+  --color-blue-500: #000dc0;
+  --color-blue-600: #0000ab;
+  --color-blue-700: #00008b;
+  --color-blue-800: #000064;
+  --color-blue-900: #00003d;
+
+  --color-green-50: #f0fefa;
+  --color-green-100: #cefbee;
+  --color-green-200: #acf8e2;
+  --color-green-300: #8af6d7;
+  --color-green-400: #68f3cb;
+  --color-green-500: #4cd8b1;
+  --color-green-600: #35b295;
+  --color-green-700: #228b77;
+  --color-green-800: #136458;
+  --color-green-900: #083d37;
+
+  --color-gray-25: #eef0f3;
+  --color-gray-50: #f7f8f9;
+  --color-gray-100: #eef0f3;
+  --color-gray-200: #d5dae1;
+  --color-gray-300: #bbc3cf;
+  --color-gray-400: #8896ab;
+  --color-gray-500: #556987;
+  --color-gray-600: #4d5f7a;
+  --color-gray-700: #404f65;
+  --color-gray-800: #333f51;
+  --color-gray-900: #2a3342;
+
+  --color-purple-50: #fbf7ff;
+  --color-purple-100: #f6eefe;
+  --color-purple-200: #e9d5fd;
+  --color-purple-300: #dcbbfc;
+  --color-purple-400: #c288f9;
+  --color-purple-500: #a855f7;
+  --color-purple-600: #974dde;
+  --color-purple-700: #7e40b9;
+  --color-purple-800: #653394;
+  --color-purple-900: #522a79;
+
+  --color-red-50: #fef7f6;
+  --color-red-100: #fdeeec;
+  --color-red-200: #fbd6d0;
+  --color-red-300: #f9bdb4;
+  --color-red-400: #f48b7c;
+  --color-red-500: #ef5944;
+  --color-red-600: #d7503d;
+  --color-red-700: #b34333;
+  --color-red-800: #8f3529;
+  --color-red-900: #752c21;
+
+  --color-orange-50: #fffaf3;
+  --color-orange-100: #fef5e7;
+  --color-orange-200: #fde7c2;
+  --color-orange-300: #fbd89d;
+  --color-orange-400: #f8bb54;
+  --color-orange-500: #f59e0b;
+  --color-orange-600: #dd8e0a;
+  --color-orange-700: #b87708;
+  --color-orange-800: #935f07;
+  --color-orange-900: #784d05;
+
+  --font-sans: DM Sans, ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  --animate-text-slide: text-slide 3s cubic-bezier(0.83, 0, 0.17, 1) infinite;
+
+  @keyframes text-slide {
+    0% {
+      transform: translateY(0%);
+    }
+    50% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(0%);
+    }
+  }
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+  @media (width >= theme(--breakpoint-sm)) {
+    padding-inline: 2rem;
+  }
+  @media (width >= theme(--breakpoint-lg)) {
+    padding-inline: 4rem;
+  }
+  @media (width >= theme(--breakpoint-xl)) {
+    padding-inline: 5rem;
+  }
+  @media (width >= theme(--breakpoint-2xl)) {
+    padding-inline: 6rem;
+  }
+}
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: var(--color-mocha-800);
+  --color-primary-focus: var(--color-mocha-300);
+  --color-secondary: var(--color-mocha-600);
+  --color-secondary-focus: var(--color-mocha-800);
+  --color-accent: var(--color-mocha-400);
+  --color-neutral: var(--color-grmochaay-600);
+  --color-base-100: var(--color-mocha-50);
+  --color-info: var(--color-mocha-400);
+  --color-success: var(--color-green-300);
+  --color-warning: var(--color-orange-500);
+  --color-error: var(--color-red-600);
+}
+
+@plugin "daisyui/theme" {
+  name: "dark";
+  default: false;
+  --color-primary: var(--color-mocha-50);
+  --color-primary-focus: var(--color-mocha-600);
+  --color-secondary: var(--color-mocha-700);
+  --color-secondary-focus: var(--color-mocha-600);
+  --color-accent: var(--color-mocha-100);
+  --color-neutral: var(--color-mocha-600);
+  --color-base-100: var(--color-mocha-800);
+  --color-info: var(--color-mocha-800);
+  --color-success: var(--color-green-300);
+  --color-warning: var(--color-orange-500);
+  --color-error: var(--color-red-600);
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
 
 html,
 body {
@@ -14,8 +197,8 @@ body {
   /*}*/
 }
 .swiper {
-    width: 100%;
-    height: 100%;
-    margin-left: auto;
-    margin-right: auto;
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
