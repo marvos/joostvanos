@@ -5,15 +5,117 @@ import { useMemo } from "react";
 import type { Route } from "./+types/huizen";
 
 /**
- * Metadata for the houses overview page
+ * Enhanced metadata for the houses overview page
+ * Provides comprehensive SEO optimization for property listings
  */
 export function meta({}: Route.MetaArgs) {
+  // Build comprehensive meta description for property listings
+  const metaDescription =
+    "Bekijk ons actuele huizen aanbod bij Joost van Os Makelaardij. " +
+    "Exclusieve woningen en appartementen in Amsterdam en omgeving, " +
+    "zorgvuldig geselecteerd en professioneel begeleid door onze ervaren makelaars. " +
+    "Vind uw droomhuis met uitgebreide foto's, details en specificaties.";
+
   return [
-    { title: "Huizen aanbod - Joost van Os Makelaardij & Mediation" },
+    { title: "Huizen Aanbod - Actuele Woningen | Joost van Os Makelaardij" },
+    { name: "description", content: metaDescription },
     {
-      name: "description",
+      name: "keywords",
       content:
-        "Bekijk ons actuele huizen aanbod. Exclusieve woningen en appartementen in de regio, beschikbaar via Joost van Os Makelaardij.",
+        "huizen te koop, woningen amsterdam, appartementen, vastgoed, makelaardij, woning aanbod, huizen aanbod, huis kopen amsterdam",
+    },
+
+    // Open Graph tags for better social media sharing
+    {
+      property: "og:title",
+      content: "Actuele Woningen & Appartementen - Joost van Os Makelaardij",
+    },
+    { property: "og:description", content: metaDescription },
+    { property: "og:type", content: "website" },
+    { property: "og:image", content: "https://joostvanos.nl/interiors.webp" },
+    { property: "og:url", content: "https://joostvanos.nl/huizen" },
+
+    // Twitter Card tags
+    { name: "twitter:card", content: "summary_large_image" },
+    {
+      name: "twitter:title",
+      content: "Actuele Woningen - Joost van Os Makelaardij",
+    },
+    { name: "twitter:description", content: metaDescription },
+    { name: "twitter:image", content: "https://joostvanos.nl/interiors.webp" },
+
+    // Structured data for property listings
+    {
+      tagName: "script",
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            item: {
+              "@type": "RealEstateListing",
+              name: "Woningen bij Joost van Os Makelaardij",
+              description:
+                "Bekijk ons actuele aanbod van woningen en appartementen in Amsterdam en omgeving.",
+              url: "https://joostvanos.nl/huizen",
+            },
+          },
+        ],
+      }),
+    },
+
+    // Real estate agent structured data
+    {
+      tagName: "script",
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "RealEstateAgent",
+        name: "Joost van Os Makelaardij",
+        description:
+          "Ervaren makelaar met ruim 25 jaar ervaring in de Amsterdamse woningmarkt.",
+        url: "https://joostvanos.nl",
+        telephone: "+31622691573",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Amsterdam",
+          addressRegion: "Noord-Holland",
+          addressCountry: "NL",
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: 52.3676,
+          longitude: 4.9041,
+        },
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Woningen",
+          itemListElement: [
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Woningaanbod",
+              },
+            },
+          ],
+        },
+      }),
+    },
+
+    // Additional metadata for search optimization
+    { name: "robots", content: "index, follow, max-image-preview:large" },
+    { name: "viewport", content: "width=device-width, initial-scale=1" },
+    {
+      name: "application-name",
+      content: "Joost van Os Makelaardij",
+    },
+    {
+      name: "apple-mobile-web-app-title",
+      content: "Huizen Aanbod",
     },
   ];
 }

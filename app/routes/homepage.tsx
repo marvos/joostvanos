@@ -7,15 +7,123 @@ import { Link } from "react-router";
 import { memo } from "react";
 
 /**
- * Metadata for the homepage
+ * Enhanced metadata for the homepage with comprehensive SEO optimization
+ * Includes structured data, social media tags, and keyword-rich descriptions
  */
 export function meta({}: Route.MetaArgs) {
+  // Main services for metadata
+  const services = [
+    "Makelaardij",
+    "Vastgoed Mediation",
+    "Mediation",
+    "Aan/verkoop begeleiding",
+    "Waardebepaling",
+  ].join(", ");
+
+  // Build comprehensive meta description using page content
+  const metaDescription =
+    `Joost van Os Makelaardij & Mediation - Met ruim 25 jaar ervaring en 850+ geslaagde transacties ` +
+    `bieden wij deskundige diensten in makelaardij, vastgoed mediation en conflictoplossing in Amsterdam. ` +
+    `Onze diensten: ${services}. Persoonlijke aanpak, uitgebreide marktkennis en effectieve begeleiding.`;
+
   return [
-    { title: "Joost van Os Makelaardij & Mediation" },
     {
-      name: "description",
+      title:
+        "Joost van Os Makelaardij & Mediation | Ervaren Makelaar & Mediator Amsterdam",
+    },
+    { name: "description", content: metaDescription },
+    {
+      name: "keywords",
+      content: `makelaardij, vastgoed mediation, mediation, makelaar amsterdam, conflictoplossing, woningmarkt, aan/verkoop, waardebepaling, amsterdam vastgoed`,
+    },
+
+    // Open Graph tags for better social media sharing
+    {
+      property: "og:title",
       content:
-        "Welkom bij joostvanos.nl! Met ruim 25 jaar ervaring in de makelaardij en 850+ geslaagde transacties zijn wij deskundig en hebben uitgebreide kennis van de lokale vastgoedmarkt.",
+        "Joost van Os Makelaardij & Mediation | Ervaren Makelaar Amsterdam",
+    },
+    { property: "og:description", content: metaDescription },
+    { property: "og:type", content: "website" },
+    { property: "og:image", content: "https://joostvanos.nl/canals.webp" },
+    { property: "og:url", content: "https://joostvanos.nl" },
+
+    // Twitter Card tags
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: "Joost van Os Makelaardij & Mediation" },
+    { name: "twitter:description", content: metaDescription },
+    { name: "twitter:image", content: "https://joostvanos.nl/canals.webp" },
+
+    // Structured data for local business (as JSON-LD)
+    {
+      tagName: "script",
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "RealEstateAgent",
+        name: "Joost van Os Makelaardij & Mediation",
+        image: "https://joostvanos.nl/logo.png",
+        description: metaDescription,
+        url: "https://joostvanos.nl",
+        telephone: "+31622691573",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Amsterdam",
+          addressRegion: "Noord-Holland",
+          addressCountry: "NL",
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: 52.3676,
+          longitude: 4.9041,
+        },
+        openingHours: "Mo-Fr 09:00-18:00",
+        priceRange: "$$",
+        sameAs: [
+          "https://www.linkedin.com/in/joost-van-os/",
+          "https://www.funda.nl/makelaars/amsterdam/64369-joost-van-os-makelaardij/",
+        ],
+        makesOffer: [
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Makelaardij",
+              description:
+                "Met ruim 25 jaar ervaring in de makelaardij en 850+ geslaagde transacties zijn wij deskundig en hebben uitgebreide kennis van de lokale vastgoedmarkt.",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Vastgoed Mediation",
+              description:
+                "Wij begrijpen dat er in zowel persoonlijke als zakelijke relaties conflicten kunnen ontstaan. Het is onze missie om u te helpen deze conflicten op een constructieve en effectieve manier op te lossen.",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Mediation",
+              description:
+                "Met onze professionele begeleiding creëren we een onpartijdige en veilige omgeving waarin alle betrokken partijen hun zorgen en wensen kunnen uiten.",
+            },
+          },
+        ],
+      }),
+    },
+
+    // Additional metadata for search ranking
+    { name: "author", content: "Joost van Os" },
+    { name: "robots", content: "index, follow" },
+    { name: "viewport", content: "width=device-width, initial-scale=1" },
+    { name: "theme-color", content: "#000000" },
+    { name: "apple-mobile-web-app-capable", content: "yes" },
+    {
+      name: "apple-mobile-web-app-status-bar-style",
+      content: "black-translucent",
     },
   ];
 }
