@@ -199,7 +199,7 @@ export default function Makelaardij({ loaderData }: Route.ComponentProps) {
             </h3>
 
             {/* Contact button */}
-            <div className="flex justify-center mt-6">
+            {/* <div className="flex justify-center mt-6">
               <Link to="/contact" className="btn btn-primary">
                 Neem contact op
                 <svg
@@ -219,7 +219,7 @@ export default function Makelaardij({ loaderData }: Route.ComponentProps) {
                   <path d="m12 5 7 7-7 7" />
                 </svg>
               </Link>
-            </div>
+            </div> */}
           </section>
         </div>
       </div>

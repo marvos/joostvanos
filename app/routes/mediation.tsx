@@ -214,7 +214,7 @@ export default function Mediation({ loaderData }: Route.ComponentProps) {
             </h3>
 
             {/* Contact button */}
-            <Link to="/contact" className="btn btn-primary">
+            {/* <Link to="/contact" className="btn btn-primary">
               Neem contact op
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -232,7 +232,7 @@ export default function Mediation({ loaderData }: Route.ComponentProps) {
                 <path d="M5 12h14" />
                 <path d="m12 5 7 7-7 7" />
               </svg>
-            </Link>
+            </Link> */}
           </section>
         </div>
       </div>

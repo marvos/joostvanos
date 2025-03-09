@@ -367,7 +367,7 @@ export default function VastgoedMediation({
               We zien uit naar onze samenwerking!
             </h3>
 
-            {/* Contact button */}
+            {/* Contact button
             <Link to="/contact" className="btn btn-primary">
               Neem contact op
               <svg
@@ -386,7 +386,7 @@ export default function VastgoedMediation({
                 <path d="M5 12h14" />
                 <path d="m12 5 7 7-7 7" />
               </svg>
-            </Link>
+            </Link> */}
           </section>
         </div>
       </div>

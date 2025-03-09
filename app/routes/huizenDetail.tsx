@@ -117,7 +117,7 @@ export function meta({ data }: Route.MetaArgs) {
 
   // Find the main image for the property
   const mainImage = huis.media?.find((item) => item.soort === "HOOFDFOTO");
-
+  console.log(mainImage);
   return [
     {
       title: `${fullAddress}, ${huis?.adres.plaats} - Joost van Os Makelaardij`,
