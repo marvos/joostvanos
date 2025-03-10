@@ -214,14 +214,14 @@ export default function Admin() {
   return (
     <>
       <div className="bg-white shadow">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center flex-col gap-2">
           <h1 className="text-2xl font-bold">Admin Dashboard</h1>
-          <Link
-            to="/admin?logout=true"
+          <a
+            href="/admin?logout=true"
             className="text-red-600 hover:text-red-800"
           >
             Logout
-          </Link>
+          </a>
         </div>
       </div>
 
