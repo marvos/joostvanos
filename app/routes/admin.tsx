@@ -54,6 +54,7 @@ export async function loader({ request }: Route.LoaderArgs) {
 export async function clientLoader({ serverLoader }: ClientLoaderFunctionArgs) {
   const isAuthenticated = await serverLoader();
   // Only fetch data if authenticated
+  console.log(isAuthenticated);
   let huizen: Objecten | undefined;
   if (isAuthenticated) {
     huizen = await useFetchRealWorks({
@@ -61,7 +62,7 @@ export async function clientLoader({ serverLoader }: ClientLoaderFunctionArgs) {
       method: "GET",
     });
   }
-  return { objecten: huizen };
+  return { objecten: huizen, isAuthenticated };
 }
 
 export async function action({ request, context }: Route.ActionArgs) {
@@ -143,14 +144,14 @@ export default function Admin() {
   }, [actionData]);
 
   // Auto-submit when authenticated
-  useEffect(() => {
-    if (isAuthenticated && formRef.current) {
-      const timer = setTimeout(() => {
-        // submit(formRef.current);
-      }, 5000);
-      return () => clearTimeout(timer);
-    }
-  }, [isAuthenticated]);
+  // useEffect(() => {
+  //   if (isAuthenticated && formRef.current) {
+  //     const timer = setTimeout(() => {
+  //       // submit(formRef.current);
+  //     }, 1000);
+  //     return () => clearTimeout(timer);
+  //   }
+  // }, [isAuthenticated]);
 
   // Login form if not authenticated
   if (!isAuthenticated) {
