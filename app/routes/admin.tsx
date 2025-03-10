@@ -9,6 +9,7 @@ import {
   useActionData,
   createCookieSessionStorage,
   redirect,
+  type ClientLoaderFunctionArgs,
 } from "react-router";
 import { useEffect, useRef, useState } from "react";
 
@@ -47,6 +48,11 @@ export async function loader({ request }: Route.LoaderArgs) {
   // Check if user is authenticated
   const isAuthenticated = session.has("authenticated");
 
+  return { isAuthenticated };
+}
+
+export async function clientLoader({ serverLoader }: ClientLoaderFunctionArgs) {
+  const isAuthenticated = await serverLoader();
   // Only fetch data if authenticated
   let huizen: Objecten | undefined;
   if (isAuthenticated) {
@@ -55,8 +61,7 @@ export async function loader({ request }: Route.LoaderArgs) {
       method: "GET",
     });
   }
-
-  return { objecten: huizen, isAuthenticated };
+  return { objecten: huizen };
 }
 
 export async function action({ request, context }: Route.ActionArgs) {
