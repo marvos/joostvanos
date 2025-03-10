@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+# Prevent duplicate content issues
+Disallow: /*?*
+
+# Sitemap location
+Sitemap: https://joostvanos.nl/sitemap.xml

@@ -23,6 +23,7 @@ export const links: Route.LinksFunction = () => [
   },
   { rel: "stylesheet", href: stylesheet },
   { rel: "manifest", href: "/manifest.json" },
+  { rel: "sitemap", type: "application/xml", href: "/sitemap.xml" },
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {

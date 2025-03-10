@@ -52,7 +52,7 @@ const navigationItems = [
 export const Navbar = ({ inverted }: { inverted: boolean }) => {
   // Function to close dropdown menu when an item is clicked
   const handleMenuCloseClick = useCallback(() => {
-    const elem = document.activeElement;
+    const elem = document.activeElement as HTMLElement;
     if (elem) {
       elem?.blur();
     }
@@ -60,7 +60,7 @@ export const Navbar = ({ inverted }: { inverted: boolean }) => {
 
   // Common NavLink styling logic to reduce duplication
   const getNavLinkClassName = useCallback(
-    ({ isActive, isPending }) => {
+    ({ isActive, isPending }: any) => {
       return `btn btn-outline border-0 ${
         inverted ? "text-white hover:text-mocha-900" : "text-mocha-900"
       } ${isPending ? "pending" : isActive ? "font-extrabold" : "font-normal"}`;
