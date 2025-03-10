@@ -211,7 +211,7 @@ export default function HouseDetail({ loaderData }: Route.ComponentProps) {
       case "beschikbaar":
         return "badge-success";
       case "verkocht":
-        return "badge-neutral";
+        return "badge-neutral text-black";
       case "verkocht onder voorbehoud":
         return "badge-warning";
       default:
@@ -401,16 +401,18 @@ export default function HouseDetail({ loaderData }: Route.ComponentProps) {
         </div>
 
         {/* Contact section */}
-        <div className="mt-4 border-t pt-4">
-          <h3 className="text-xl font-semibold mb-2">Interesse?</h3>
-          <p>
-            Neem contact op met Joost van Os voor meer informatie of voor het
-            maken van een bezichtigingsafspraak.
-          </p>
-          <a href="tel:+31622691573" className="btn btn-primary mt-4">
-            Bel direct: 0622 691573
-          </a>
-        </div>
+        {overdrachtStatus === "beschikbaar" && (
+          <div className="mt-4 border-t pt-4">
+            <h3 className="text-xl font-semibold mb-2">Interesse?</h3>
+            <p>
+              Neem contact op voor meer informatie of voor het maken van een
+              bezichtigingsafspraak.
+            </p>
+            <a href="tel:+31622691573" className="btn btn-primary mt-4">
+              Bel: 0622 691573
+            </a>
+          </div>
+        )}
       </div>
     </>
   );
