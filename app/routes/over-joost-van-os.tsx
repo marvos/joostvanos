@@ -10,7 +10,38 @@ export function meta({}: Route.MetaArgs) {
   const metaDescription =
     "Ontmoet Joost van Os - Ervaren makelaar met ruim 25 jaar ervaring en 2000+ geslaagde vastgoedtransacties. " +
     "Sinds 2024 ook Vastgoed Mediator. Persoonlijke aanpak, eerlijke communicatie en grondige kennis van de Amsterdamse woningmarkt.";
-
+  const scriptLdRealEstateAgent = {
+    "script:ld+json": {
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Joost van Os",
+        jobTitle: "Makelaar & Vastgoed Mediator",
+        description: metaDescription,
+        image: "https://joostvanos.nl/joost-portrait.jpg",
+        url: "https://joostvanos.nl/over-joost-van-os",
+        telephone: "+31622691573",
+        email: "makelaardij@joostvanos.nl",
+        worksFor: {
+          "@type": "RealEstateAgent",
+          name: "Joost van Os Makelaardij & Mediation",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Amsterdam",
+            addressRegion: "Noord-Holland",
+            addressCountry: "NL",
+          },
+        },
+        knowsAbout: [
+          "Vastgoed",
+          "Makelaardij",
+          "Vastgoed Mediation",
+          "Amsterdamse woningmarkt",
+          "Conflictoplossing",
+        ],
+      }),
+    },
+  };
   return [
     { title: "Over Joost van Os | Makelaar & Vastgoed Mediator" },
     { name: "description", content: metaDescription },
@@ -50,38 +81,7 @@ export function meta({}: Route.MetaArgs) {
     },
 
     // Structured data for person (as JSON-LD)
-    {
-      tagName: "script",
-      type: "application/ld+json",
-      children: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Person",
-        name: "Joost van Os",
-        jobTitle: "Makelaar & Vastgoed Mediator",
-        description: metaDescription,
-        image: "https://joostvanos.nl/joost-portrait.jpg",
-        url: "https://joostvanos.nl/over-joost-van-os",
-        telephone: "+31622691573",
-        email: "makelaardij@joostvanos.nl",
-        worksFor: {
-          "@type": "RealEstateAgent",
-          name: "Joost van Os Makelaardij & Mediation",
-          address: {
-            "@type": "PostalAddress",
-            addressLocality: "Amsterdam",
-            addressRegion: "Noord-Holland",
-            addressCountry: "NL",
-          },
-        },
-        knowsAbout: [
-          "Vastgoed",
-          "Makelaardij",
-          "Vastgoed Mediation",
-          "Amsterdamse woningmarkt",
-          "Conflictoplossing",
-        ],
-      }),
-    },
+    { ...scriptLdRealEstateAgent },
   ];
 }
 

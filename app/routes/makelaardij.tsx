@@ -24,37 +24,8 @@ export function meta({}: Route.MetaArgs) {
     `Persoonlijke benadering met uw wensen centraal. Onze diensten: ${services}. ` +
     `Heldere communicatie en uitgebreid netwerk voor effectieve vastgoedhulp.`;
 
-  return [
-    { title: "Makelaardij Diensten - Joost van Os Makelaardij & Mediation" },
-    { name: "description", content: metaDescription },
-    {
-      name: "keywords",
-      content: `makelaardij, vastgoed, makelaar, ${services.toLowerCase()}, Amsterdam, woningmarkt`,
-    },
-
-    // Open Graph tags for better social media sharing
-    { property: "og:title", content: "Makelaardij Diensten - Joost van Os" },
-    { property: "og:description", content: metaDescription },
-    { property: "og:type", content: "website" },
-    {
-      property: "og:image",
-      content: "https://joostvanos.nl/canals-night.webp",
-    },
-    { property: "og:url", content: "https://joostvanos.nl/makelaardij" },
-
-    // Twitter Card tags
-    { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: "Makelaardij Diensten - Joost van Os" },
-    { name: "twitter:description", content: metaDescription },
-    {
-      name: "twitter:image",
-      content: "https://joostvanos.nl/canals-night.webp",
-    },
-
-    // Structured data for local business (as JSON-LD)
-    {
-      tagName: "script",
-      type: "application/ld+json",
+  const scriptLdRealEstateAgent = {
+    "script:ld+json": {
       children: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
@@ -83,6 +54,37 @@ export function meta({}: Route.MetaArgs) {
         ],
       }),
     },
+  };
+
+  return [
+    { title: "Makelaardij Diensten - Joost van Os Makelaardij & Mediation" },
+    { name: "description", content: metaDescription },
+    {
+      name: "keywords",
+      content: `makelaardij, vastgoed, makelaar, ${services.toLowerCase()}, Amsterdam, woningmarkt`,
+    },
+
+    // Open Graph tags for better social media sharing
+    { property: "og:title", content: "Makelaardij Diensten - Joost van Os" },
+    { property: "og:description", content: metaDescription },
+    { property: "og:type", content: "website" },
+    {
+      property: "og:image",
+      content: "https://joostvanos.nl/canals-night.webp",
+    },
+    { property: "og:url", content: "https://joostvanos.nl/makelaardij" },
+
+    // Twitter Card tags
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: "Makelaardij Diensten - Joost van Os" },
+    { name: "twitter:description", content: metaDescription },
+    {
+      name: "twitter:image",
+      content: "https://joostvanos.nl/canals-night.webp",
+    },
+
+    // Structured data for local business (as JSON-LD)
+    { ...scriptLdRealEstateAgent },
   ];
 }
 

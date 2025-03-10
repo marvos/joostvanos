@@ -28,7 +28,36 @@ export function meta({}: Route.MetaArgs) {
     `Een vastgoed mediator is neutraal, in tegenstelling tot een makelaar die partijdig is. ` +
     `Voordelen: ${benefits}. Geschikt voor: ${serviceAreas}. ` +
     `Duurzame oplossingen zonder juridische procedures.`;
-
+  const scriptLdRealEstateAgent = {
+    "script:ld+json": {
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: "Vastgoed Mediation",
+        serviceType: "Vastgoed Mediation",
+        provider: {
+          "@type": "ProfessionalService",
+          name: "Joost van Os Makelaardij & Mediation",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Amsterdam",
+            addressRegion: "Noord-Holland",
+            addressCountry: "NL",
+          },
+        },
+        description: metaDescription,
+        offers: {
+          "@type": "Offer",
+          availability: "https://schema.org/InStock",
+        },
+        areaServed: {
+          "@type": "City",
+          name: "Amsterdam",
+        },
+        serviceOutput: "Vaststellingsovereenkomst (VSO)",
+      }),
+    },
+  };
   return [
     { title: "Vastgoed Mediation - Joost van Os Makelaardij & Mediation" },
     { name: "description", content: metaDescription },
@@ -57,36 +86,7 @@ export function meta({}: Route.MetaArgs) {
     },
 
     // Structured data for service offering (as JSON-LD)
-    {
-      tagName: "script",
-      type: "application/ld+json",
-      children: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Service",
-        name: "Vastgoed Mediation",
-        serviceType: "Vastgoed Mediation",
-        provider: {
-          "@type": "ProfessionalService",
-          name: "Joost van Os Makelaardij & Mediation",
-          address: {
-            "@type": "PostalAddress",
-            addressLocality: "Amsterdam",
-            addressRegion: "Noord-Holland",
-            addressCountry: "NL",
-          },
-        },
-        description: metaDescription,
-        offers: {
-          "@type": "Offer",
-          availability: "https://schema.org/InStock",
-        },
-        areaServed: {
-          "@type": "City",
-          name: "Amsterdam",
-        },
-        serviceOutput: "Vaststellingsovereenkomst (VSO)",
-      }),
-    },
+    { ...scriptLdRealEstateAgent },
   ];
 }
 
@@ -178,8 +178,8 @@ export default function VastgoedMediation({
               <span className="font-semibold">eigen belang</span> en zijn
               daardoor niet meer gefocust op het oplossen van het conflict
               waardoor het conflict kan{" "}
-              <span className="font-semibold">escaleren</span>
-              met alle (juridische) gevolgen van dien.
+              <span className="font-semibold">escaleren</span> met alle
+              (juridische) gevolgen van dien.
             </p>
             <p className="mt-4">
               Mediation is een{" "}
@@ -210,8 +210,8 @@ export default function VastgoedMediation({
               van een eerste intake tot het vastleggen van een{" "}
               <span className="font-semibold">bindende overeenkomst</span>. De
               mediator speelt in elke fase een{" "}
-              <span className="font-semibold">cruciale rol</span>
-              door het faciliteren van gesprekken en het bieden van een{" "}
+              <span className="font-semibold">cruciale rol</span> door het
+              faciliteren van gesprekken en het bieden van een{" "}
               <span className="font-semibold">veilige omgeving</span> waarin
               partijen hun standpunten kunnen delen.
             </p>
@@ -388,9 +388,9 @@ export default function VastgoedMediation({
               Met mediation kunnen conflicten{" "}
               <span className="font-semibold">snel</span>,{" "}
               <span className="font-semibold">effectief</span> en{" "}
-              <span className="font-semibold">kostenefficiënt</span>
-              worden opgelost, zonder de tussenkomst van een jurist of rechter.
-              Joost van Os Makelaardij & Mediation biedt{" "}
+              <span className="font-semibold">kostenefficiënt</span> worden
+              opgelost, zonder de tussenkomst van een jurist of rechter. Joost
+              van Os Makelaardij & Mediation biedt{" "}
               <span className="font-semibold">mediation op maat</span>, gericht
               op het vinden van{" "}
               <span className="font-semibold">duurzame oplossingen</span> die

@@ -26,38 +26,10 @@ export function meta({}: Route.MetaArgs) {
     `bieden wij deskundige diensten in makelaardij, vastgoed mediation en conflictoplossing in Amsterdam. ` +
     `Onze diensten: ${services}. Persoonlijke aanpak, uitgebreide marktkennis en effectieve begeleiding.`;
 
-  return [
-    {
-      title:
-        "Joost van Os Makelaardij & Mediation | Ervaren Makelaar & Mediator Amsterdam",
-    },
-    { name: "description", content: metaDescription },
-    {
-      name: "keywords",
-      content: `makelaardij, vastgoed mediation, mediation, makelaar amsterdam, conflictoplossing, woningmarkt, aan/verkoop, waardebepaling, amsterdam vastgoed`,
-    },
-
-    // Open Graph tags for better social media sharing
-    {
-      property: "og:title",
-      content:
-        "Joost van Os Makelaardij & Mediation | Ervaren Makelaar Amsterdam",
-    },
-    { property: "og:description", content: metaDescription },
-    { property: "og:type", content: "website" },
-    { property: "og:image", content: "https://joostvanos.nl/canals.webp" },
-    { property: "og:url", content: "https://joostvanos.nl" },
-
-    // Twitter Card tags
-    { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: "Joost van Os Makelaardij & Mediation" },
-    { name: "twitter:description", content: metaDescription },
-    { name: "twitter:image", content: "https://joostvanos.nl/canals.webp" },
-
-    // Structured data for local business (as JSON-LD)
-    {
-      tagName: "script",
-      type: "application/ld+json",
+  const scriptLdRealEstateAgent = {
+    "script:ld+json": {
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
       children: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "RealEstateAgent",
@@ -114,13 +86,44 @@ export function meta({}: Route.MetaArgs) {
         ],
       }),
     },
+  };
+
+  return [
+    {
+      title:
+        "Joost van Os Makelaardij & Mediation | Ervaren Makelaar & Mediator Amsterdam",
+    },
+    { name: "description", content: metaDescription },
+    {
+      name: "keywords",
+      content: `makelaardij, vastgoed mediation, mediation, makelaar amsterdam, conflictoplossing, woningmarkt, aan/verkoop, waardebepaling, amsterdam vastgoed`,
+    },
+
+    // Open Graph tags for better social media sharing
+    {
+      property: "og:title",
+      content:
+        "Joost van Os Makelaardij & Mediation | Ervaren Makelaar Amsterdam",
+    },
+    { property: "og:description", content: metaDescription },
+    { property: "og:type", content: "website" },
+    { property: "og:image", content: "https://joostvanos.nl/canals.webp" },
+    { property: "og:url", content: "https://joostvanos.nl" },
+
+    // Twitter Card tags
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: "Joost van Os Makelaardij & Mediation" },
+    { name: "twitter:description", content: metaDescription },
+    { name: "twitter:image", content: "https://joostvanos.nl/canals.webp" },
+
+    { ...scriptLdRealEstateAgent },
 
     // Additional metadata for search ranking
     { name: "author", content: "Joost van Os" },
     { name: "robots", content: "index, follow" },
     { name: "viewport", content: "width=device-width, initial-scale=1" },
     { name: "theme-color", content: "#000000" },
-    { name: "apple-mobile-web-app-capable", content: "yes" },
+    { name: "mobile-web-app-capable", content: "yes" },
     {
       name: "apple-mobile-web-app-status-bar-style",
       content: "black-translucent",

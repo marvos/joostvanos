@@ -16,61 +16,8 @@ export function meta({}: Route.MetaArgs) {
     "zorgvuldig geselecteerd en professioneel begeleid door onze ervaren makelaars. " +
     "Vind uw droomhuis met uitgebreide foto's, details en specificaties.";
 
-  return [
-    { title: "Huizen Aanbod - Actuele Woningen | Joost van Os Makelaardij" },
-    { name: "description", content: metaDescription },
-    {
-      name: "keywords",
-      content:
-        "huizen te koop, woningen amsterdam, appartementen, vastgoed, makelaardij, woning aanbod, huizen aanbod, huis kopen amsterdam",
-    },
-
-    // Open Graph tags for better social media sharing
-    {
-      property: "og:title",
-      content: "Actuele Woningen & Appartementen - Joost van Os Makelaardij",
-    },
-    { property: "og:description", content: metaDescription },
-    { property: "og:type", content: "website" },
-    { property: "og:image", content: "https://joostvanos.nl/interiors.webp" },
-    { property: "og:url", content: "https://joostvanos.nl/huizen" },
-
-    // Twitter Card tags
-    { name: "twitter:card", content: "summary_large_image" },
-    {
-      name: "twitter:title",
-      content: "Actuele Woningen - Joost van Os Makelaardij",
-    },
-    { name: "twitter:description", content: metaDescription },
-    { name: "twitter:image", content: "https://joostvanos.nl/interiors.webp" },
-
-    // Structured data for property listings
-    {
-      tagName: "script",
-      type: "application/ld+json",
-      children: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            item: {
-              "@type": "RealEstateListing",
-              name: "Woningen bij Joost van Os Makelaardij",
-              description:
-                "Bekijk ons actuele aanbod van woningen en appartementen in Amsterdam en omgeving.",
-              url: "https://joostvanos.nl/huizen",
-            },
-          },
-        ],
-      }),
-    },
-
-    // Real estate agent structured data
-    {
-      tagName: "script",
-      type: "application/ld+json",
+  const scriptLdRealEstateAgent = {
+    "script:ld+json": {
       children: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "RealEstateAgent",
@@ -105,6 +52,59 @@ export function meta({}: Route.MetaArgs) {
         },
       }),
     },
+  };
+  const scriptLdItemList = {
+    "script:ld+json": {
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            item: {
+              "@type": "RealEstateListing",
+              name: "Woningen bij Joost van Os Makelaardij",
+              description:
+                "Bekijk ons actuele aanbod van woningen en appartementen in Amsterdam en omgeving.",
+              url: "https://joostvanos.nl/huizen",
+            },
+          },
+        ],
+      }),
+    },
+  };
+
+  return [
+    { title: "Huizen Aanbod - Actuele Woningen | Joost van Os Makelaardij" },
+    { name: "description", content: metaDescription },
+    {
+      name: "keywords",
+      content:
+        "huizen te koop, woningen amsterdam, appartementen, vastgoed, makelaardij, woning aanbod, huizen aanbod, huis kopen amsterdam",
+    },
+
+    // Open Graph tags for better social media sharing
+    {
+      property: "og:title",
+      content: "Actuele Woningen & Appartementen - Joost van Os Makelaardij",
+    },
+    { property: "og:description", content: metaDescription },
+    { property: "og:type", content: "website" },
+    { property: "og:image", content: "https://joostvanos.nl/interiors.webp" },
+    { property: "og:url", content: "https://joostvanos.nl/huizen" },
+
+    // Twitter Card tags
+    { name: "twitter:card", content: "summary_large_image" },
+    {
+      name: "twitter:title",
+      content: "Actuele Woningen - Joost van Os Makelaardij",
+    },
+    { name: "twitter:description", content: metaDescription },
+    { name: "twitter:image", content: "https://joostvanos.nl/interiors.webp" },
+
+    { ...scriptLdRealEstateAgent },
+    { ...scriptLdItemList },
 
     // Additional metadata for search optimization
     { name: "robots", content: "index, follow, max-image-preview:large" },

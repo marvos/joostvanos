@@ -21,7 +21,35 @@ export function meta({}: Route.MetaArgs) {
     `Joost van Os biedt professionele mediation diensten voor vastgoedconflicten. ` +
     `Wij creëren een veilige omgeving voor constructieve en effectieve geschiloplossing. ` +
     `Onze diensten: ${services}. Persoonlijke aandacht en maatwerk voor duurzame oplossingen.`;
-
+  const scriptLdRealEstateAgent = {
+    "script:ld+json": {
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: "Vastgoed Mediation Diensten",
+        provider: {
+          "@type": "ProfessionalService",
+          name: "Joost van Os Makelaardij & Mediation",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Amsterdam",
+            addressRegion: "Noord-Holland",
+            addressCountry: "NL",
+          },
+        },
+        description: metaDescription,
+        offers: {
+          "@type": "Offer",
+          availability: "https://schema.org/InStock",
+        },
+        serviceType: services.split(", "),
+        areaServed: {
+          "@type": "City",
+          name: "Amsterdam",
+        },
+      }),
+    },
+  };
   return [
     { title: "Mediation Diensten - Joost van Os Makelaardij & Mediation" },
     { name: "description", content: metaDescription },
@@ -50,35 +78,7 @@ export function meta({}: Route.MetaArgs) {
     },
 
     // Structured data for service offering (as JSON-LD)
-    {
-      tagName: "script",
-      type: "application/ld+json",
-      children: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Service",
-        name: "Vastgoed Mediation Diensten",
-        provider: {
-          "@type": "ProfessionalService",
-          name: "Joost van Os Makelaardij & Mediation",
-          address: {
-            "@type": "PostalAddress",
-            addressLocality: "Amsterdam",
-            addressRegion: "Noord-Holland",
-            addressCountry: "NL",
-          },
-        },
-        description: metaDescription,
-        offers: {
-          "@type": "Offer",
-          availability: "https://schema.org/InStock",
-        },
-        serviceType: services.split(", "),
-        areaServed: {
-          "@type": "City",
-          name: "Amsterdam",
-        },
-      }),
-    },
+    { ...scriptLdRealEstateAgent },
   ];
 }
 
