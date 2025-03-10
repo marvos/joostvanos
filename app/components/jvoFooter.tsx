@@ -1,134 +1,203 @@
 import { Link } from "react-router";
 
+/**
+ * Footer component for Joost van Os website
+ * Contains navigation links, contact information, and branding
+ */
 export function JvoFooter() {
-  return (
-    <div className="bg-mocha-800 text-mocha-50 py-10 px-6 ">
-      <footer className=" flex flex-col lg:grid lg:grid-cols-4 gap-10 lg:gap-4 ">
-        <nav className="flex flex-col gap-2">
-          <h6 className="footer-title">Services</h6>
-          <Link to="/makelaardij" className="link link-hover">
-            Makelaardij
-          </Link>
+  // Footer link sections for consistent rendering
+  const footerSections = [
+    {
+      title: "Services",
+      links: [
+        { label: "Makelaardij", url: "/makelaardij" },
+        { label: "Vastgoed Mediation", url: "/vastgoed-mediation" },
+        { label: "Mediation diensten", url: "/mediation" },
+      ],
+    },
+    {
+      title: "Aanbod",
+      links: [{ label: "Huizen", url: "/huizen" }],
+    },
+    {
+      title: "Other",
+      links: [
+        {
+          label: "Privacy policy",
+          url: "/NVM-Privacyverklaring-Joost-van-Os-Makelaardij-en-Mediation.pdf",
+          external: true,
+        },
+        { label: "Over Joost van Os", url: "/over-joost-van-os" },
+      ],
+    },
+  ];
 
-          <Link to={"/vastgoed-mediation"} className="link link-hover">
-            Vastgoed Mediation
-          </Link>
+  // Contact information for the footer
+  const contactInfo = {
+    address: {
+      street: "Utrechtsedwarsstraat 46",
+      postalCode: "1017 WG",
+      city: "Amsterdam",
+    },
+    phone: [
+      { label: "020 6644511", href: "+31206644511", icon: "phone" },
+      { label: "0622 691573", href: "+31622691573", icon: "mobile" },
+    ],
+    email: [
+      {
+        label: "makelaardij@joostvanos.nl",
+        href: "mailto:makelaardij@joostvanos.nl",
+      },
+      {
+        label: "mediation@joostvanos.nl",
+        href: "mailto:mediation@joostvanos.nl",
+      },
+    ],
+  };
 
-          <Link to={"/mediation"} className="link link-hover">
-            Mediation diensten
-          </Link>
-        </nav>
-        <nav className="flex flex-col gap-2">
-          <h6 className="footer-title">Aanbod</h6>
-          <Link to="/huizen" className="link link-hover">
-            Huizen
-          </Link>
-        </nav>
-        <nav className="flex flex-col gap-2">
-          <h6 className="footer-title">Legal</h6>
-          {/*<a className="link link-hover">Terms of use</a>*/}
-          <a
-            href="/NVM-Privacyverklaring-Joost-van-Os-Makelaardij-en-Mediation.pdf"
-            className="link link-hover"
+  /**
+   * Renders the appropriate icon SVG based on type
+   * @param {string} type - Icon type to display
+   * @returns {JSX.Element} SVG icon element
+   */
+  const getIcon = (type: string) => {
+    switch (type) {
+      case "phone":
+        return (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="currentColor"
+            aria-hidden="true"
           >
-            Privacy policy
-          </a>
-          {/*<a className="link link-hover">Cookie policy</a>*/}
-        </nav>
-        <nav className="flex flex-col gap-2">
-          <h6 className="footer-title">Contact</h6>
-          <p className="leading-6 mb-4 ">
-            Utrechtsedwarsstraat 46
-            <br />
-            1017 WG Amsterdam
-            <br />
-          </p>
-          <div className="grid grid-cols-2  items-start justify-center gap-4 pb-4">
-            <a
-              href="tel:+31206644511"
-              className="btn btn-secondary  flex flex-nowrap"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="currentColor"
-                className="inline-block "
-              >
-                <g clipPath="url(#a)">
-                  <path
-                    fill="currentColor"
-                    d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 0 0-1.02.24l-2.2 2.2a15.045 15.045 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1A11.36 11.36 0 0 1 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1ZM21 6h-3V3h-2v3h-3v2h3v3h2V8h3V6Z"
-                  />
-                </g>
-              </svg>
-              020 6644511
-            </a>
-            <a
-              href="tel:+31622691573"
-              className="btn btn-secondary  flex flex-nowrap"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="currentColor"
-              >
-                <g clipPath="url(#a)">
-                  <path
-                    fill="currentColor"
-                    d="M17 1.01 7 1c-1.1 0-1.99.9-1.99 2v18c0 1.1.89 2 1.99 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99ZM17 19H7V5h10v14Z"
-                  />
-                </g>
-              </svg>
-              0622 691573
-            </a>
+            <path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 0 0-1.02.24l-2.2 2.2a15.045 15.045 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1A11.36 11.36 0 0 1 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1ZM21 6h-3V3h-2v3h-3v2h3v3h2V8h3V6Z" />
+          </svg>
+        );
+      case "mobile":
+        return (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path d="M17 1.01 7 1c-1.1 0-1.99.9-1.99 2v18c0 1.1.89 2 1.99 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99ZM17 19H7V5h10v14Z" />
+          </svg>
+        );
+      default:
+        return (
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22H17V20H12C7.66 20 4 16.34 4 12C4 7.66 7.66 4 12 4C16.34 4 20 7.66 20 12V13.43C20 14.22 19.29 15 18.5 15C17.71 15 17 14.22 17 13.43V12C17 9.24 14.76 7 12 7C9.24 7 7 9.24 7 12C7 14.76 9.24 17 12 17C13.38 17 14.64 16.44 15.54 15.53C16.19 16.42 17.31 17 18.5 17C20.47 17 22 15.4 22 13.43V12C22 6.48 17.52 2 12 2ZM12 15C10.34 15 9 13.66 9 12C9 10.34 10.34 9 12 9C13.66 9 15 10.34 15 12C15 13.66 13.66 15 12 15Z" />
+          </svg>
+        );
+    }
+  };
 
-            <a
-              href="mailto:makelaardij@joostvanos.nl"
-              className="btn btn-secondary  flex flex-nowrap"
+  return (
+    <footer className="bg-mocha-800 text-mocha-50 py-10 px-6">
+      {/* Main footer section with navigation and contact info */}
+      <div className="flex flex-col lg:grid lg:grid-cols-4 gap-10 lg:gap-4">
+        {/* Navigation sections */}
+        {footerSections.map((section) => (
+          <nav
+            className="flex flex-col gap-2"
+            key={section.title}
+            aria-labelledby={`footer-${section.title.toLowerCase()}`}
+          >
+            <h2
+              id={`footer-${section.title.toLowerCase()}`}
+              className="footer-title"
             >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
+              {section.title}
+            </h2>
+
+            {section.links.map((link) =>
+              link.external ? (
+                <a
+                  href={link.url}
+                  className="link link-hover"
+                  key={link.label}
+                  rel="noopener noreferrer"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  to={link.url}
+                  className="link link-hover"
+                  key={link.label}
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
+          </nav>
+        ))}
+
+        {/* Contact information section */}
+        <nav className="flex flex-col gap-2" aria-labelledby="footer-contact">
+          <h2 id="footer-contact" className="footer-title">
+            Contact
+          </h2>
+
+          {/* Physical address */}
+          <address className="leading-6 mb-4 not-italic">
+            {contactInfo.address.street}
+            <br />
+            {contactInfo.address.postalCode} {contactInfo.address.city}
+            <br />
+          </address>
+
+          {/* Contact buttons grid */}
+          <div className="grid grid-cols-2 items-start justify-center gap-4 pb-4">
+            {/* Phone numbers */}
+            {contactInfo.phone.map((phone) => (
+              <a
+                href={`tel:${phone.href}`}
+                className="btn btn-secondary flex flex-nowrap items-center justify-start whitespace-nowrap overflow-hidden max-w-full"
+                key={phone.href}
+                aria-label={`Bel ${phone.label}`}
               >
-                <g clipPath="url(#clip0_17_19831)">
-                  <path
-                    d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22H17V20H12C7.66 20 4 16.34 4 12C4 7.66 7.66 4 12 4C16.34 4 20 7.66 20 12V13.43C20 14.22 19.29 15 18.5 15C17.71 15 17 14.22 17 13.43V12C17 9.24 14.76 7 12 7C9.24 7 7 9.24 7 12C7 14.76 9.24 17 12 17C13.38 17 14.64 16.44 15.54 15.53C16.19 16.42 17.31 17 18.5 17C20.47 17 22 15.4 22 13.43V12C22 6.48 17.52 2 12 2ZM12 15C10.34 15 9 13.66 9 12C9 10.34 10.34 9 12 9C13.66 9 15 10.34 15 12C15 13.66 13.66 15 12 15Z"
-                    fill="currentColor"
-                  />
-                </g>
-              </svg>
-              <div className="break-all"> makelaardij@joostvanos.nl</div>
-            </a>
-            <a
-              href="mailto:mediation@joostvanos.nl"
-              className="btn btn-secondary flex flex-nowrap"
-            >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
+                <span className="flex-shrink-0 mr-2">
+                  {getIcon(phone.icon)}
+                </span>
+                <span className="truncate overflow-ellipsis">
+                  {phone.label}
+                </span>
+              </a>
+            ))}
+
+            {/* Email addresses */}
+            {contactInfo.email.map((email) => (
+              <a
+                href={email.href}
+                className="btn btn-secondary flex flex-nowrap items-center justify-start whitespace-nowrap overflow-hidden max-w-full"
+                key={email.href}
+                aria-label={`Email naar ${email.label}`}
               >
-                <g clipPath="url(#clip0_17_19831)">
-                  <path
-                    d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22H17V20H12C7.66 20 4 16.34 4 12C4 7.66 7.66 4 12 4C16.34 4 20 7.66 20 12V13.43C20 14.22 19.29 15 18.5 15C17.71 15 17 14.22 17 13.43V12C17 9.24 14.76 7 12 7C9.24 7 7 9.24 7 12C7 14.76 9.24 17 12 17C13.38 17 14.64 16.44 15.54 15.53C16.19 16.42 17.31 17 18.5 17C20.47 17 22 15.4 22 13.43V12C22 6.48 17.52 2 12 2ZM12 15C10.34 15 9 13.66 9 12C9 10.34 10.34 9 12 9C13.66 9 15 10.34 15 12C15 13.66 13.66 15 12 15Z"
-                    fill="currentColor"
-                  />
-                </g>
-              </svg>
-              <div className="break-all">mediation@joostvanos.nl</div>
-            </a>
+                <span className="flex-shrink-0 mr-2">{getIcon("email")}</span>
+                <span className="truncate overflow-ellipsis">
+                  {email.label}
+                </span>
+              </a>
+            ))}
           </div>
         </nav>
-      </footer>
-      <footer className="footer xl:container ">
+      </div>
+
+      {/* Logo and copyright section */}
+      <div className="footer xl:container">
         <aside className="grid-flow-col items-center">
+          {/* Logo SVG */}
           <svg
             width={1462}
             height={482}
@@ -136,7 +205,10 @@ export function JvoFooter() {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             className="logo-dark lg:w-full max-w-[500px] w-[260px] max-h-32 m-auto block"
+            aria-label="Joost van Os Makelaardij & Mediation logo"
+            role="img"
           >
+            {/* Main logo square with mountain symbol */}
             <rect
               x={5}
               y={5}
@@ -163,8 +235,14 @@ export function JvoFooter() {
               fill="#fff"
             />
           </svg>
+
+          {/* Copyright notice - year is dynamically generated */}
+          <p className="text-center mt-4 text-xs opacity-75">
+            © {new Date().getFullYear()} Joost van Os Makelaardij & Mediation.
+            Alle rechten voorbehouden.
+          </p>
         </aside>
-      </footer>
-    </div>
+      </div>
+    </footer>
   );
 }

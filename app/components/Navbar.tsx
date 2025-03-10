@@ -1,5 +1,47 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useMemo } from "react";
 import { Link, NavLink } from "react-router";
+
+/**
+ * Navigation data structure containing all menu items
+ */
+const navigationItems = [
+  {
+    id: "home",
+    label: "Home",
+    path: "/",
+    isDropdown: false,
+  },
+  {
+    id: "makelaardij",
+    label: "Makelaardij",
+    path: "/makelaardij",
+    isDropdown: false,
+  },
+  {
+    id: "mediation",
+    label: "Mediation",
+    path: null, // No direct path for dropdown headers
+    isDropdown: true,
+    children: [
+      {
+        id: "vastgoed-mediation",
+        label: "Vastgoed mediation",
+        path: "/vastgoed-mediation",
+      },
+      {
+        id: "mediation-diensten",
+        label: "Mediation diensten",
+        path: "/mediation",
+      },
+    ],
+  },
+  {
+    id: "huizen",
+    label: "Huizen",
+    path: "/huizen",
+    isDropdown: false,
+  },
+];
 
 /**
  * Navigation bar component that adapts to light/dark mode
@@ -26,6 +68,24 @@ export const Navbar = ({ inverted }: { inverted: boolean }) => {
     [inverted]
   );
 
+  // Define dropdown styling based on current mode
+  const dropdownMenuClass = useMemo(
+    () =>
+      `dropdown-content menu p-2 shadow rounded-box w-52 ${
+        inverted ? "bg-black" : "bg-base-100"
+      }`,
+    [inverted]
+  );
+
+  // Define dropdown label styling based on current mode
+  const dropdownLabelClass = useMemo(
+    () =>
+      `btn btn-outline leading-8 border-0 ${
+        inverted ? "text-white hover:text-mocha-900" : "text-mocha-900"
+      }`,
+    [inverted]
+  );
+
   return (
     <div
       className={`navbar fixed z-30 px-4 shadow-2xl ${
@@ -40,12 +100,14 @@ export const Navbar = ({ inverted }: { inverted: boolean }) => {
       {/* Mobile navigation */}
       <div className="navbar-start">
         <div className="dropdown">
+          {/* Mobile menu button */}
           <div
             tabIndex={0}
             role="button"
             className={`btn btn-ghost lg:hidden ${
               inverted ? "text-white" : ""
             }`}
+            aria-label="Menu"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -53,6 +115,7 @@ export const Navbar = ({ inverted }: { inverted: boolean }) => {
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
+              aria-hidden="true"
             >
               <path
                 strokeLinecap="round"
@@ -62,30 +125,36 @@ export const Navbar = ({ inverted }: { inverted: boolean }) => {
               />
             </svg>
           </div>
+
+          {/* Mobile dropdown menu */}
           <ul
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow-sm"
           >
-            <li>
-              <Link to={"/"}>Home</Link>
-            </li>
-            <li>
-              <Link to={"/makelaardij"}>Makelaardij</Link>
-            </li>
-            <li>
-              <a className="pointer-events-none">Mediation</a>
-              <ul className="p-2">
-                <li>
-                  <Link to={"/vastgoed-mediation"}>Vastgoed Mediation</Link>
+            {navigationItems.map((item) =>
+              item.isDropdown ? (
+                // Dropdown item
+                <li key={item.id}>
+                  <a className="pointer-events-none">{item.label}</a>
+                  <ul className="p-2">
+                    {item.children?.map((child) => (
+                      <li key={child.id}>
+                        <Link to={child.path} onClick={handleMenuCloseClick}>
+                          {child.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
                 </li>
-                <li>
-                  <Link to={"/mediation"}>Mediation diensten</Link>
+              ) : (
+                // Regular item
+                <li key={item.id}>
+                  <Link to={item.path} onClick={handleMenuCloseClick}>
+                    {item.label}
+                  </Link>
                 </li>
-              </ul>
-            </li>
-            <li>
-              <Link to={"/huizen"}>Huizen</Link>
-            </li>
+              )
+            )}
           </ul>
         </div>
       </div>
@@ -97,59 +166,36 @@ export const Navbar = ({ inverted }: { inverted: boolean }) => {
             inverted ? "text-white" : "text-mocha-50"
           }`}
         >
-          <li>
-            <NavLink className={getNavLinkClassName} to={"/"}>
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className={getNavLinkClassName} to={"/makelaardij"}>
-              Makelaardij
-            </NavLink>
-          </li>
-
-          {/* Dropdown menu for Mediation */}
-          <li className="dropdown">
-            <label
-              tabIndex={0}
-              className={`btn btn-outline leading-8 border-0 ${
-                inverted ? "text-white hover:text-mocha-900" : "text-mocha-900"
-              }`}
-            >
-              Mediation
-            </label>
-            <ul
-              tabIndex={0}
-              className={`dropdown-content menu p-2 shadow rounded-box w-52 ${
-                inverted ? "bg-black" : "bg-base-100"
-              }`}
-            >
-              <li>
-                <NavLink
-                  className={getNavLinkClassName}
-                  to={"/vastgoed-mediation"}
-                  onClick={handleMenuCloseClick}
-                >
-                  Vastgoed mediation
+          {navigationItems.map((item) =>
+            item.isDropdown ? (
+              // Desktop dropdown menu
+              <li key={item.id} className="dropdown">
+                <label tabIndex={0} className={dropdownLabelClass}>
+                  {item.label}
+                </label>
+                <ul tabIndex={0} className={dropdownMenuClass}>
+                  {item.children?.map((child) => (
+                    <li key={child.id}>
+                      <NavLink
+                        className={getNavLinkClassName}
+                        to={child.path}
+                        onClick={handleMenuCloseClick}
+                      >
+                        {child.label}
+                      </NavLink>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ) : (
+              // Regular desktop menu item
+              <li key={item.id}>
+                <NavLink className={getNavLinkClassName} to={item.path}>
+                  {item.label}
                 </NavLink>
               </li>
-              <li>
-                <NavLink
-                  className={getNavLinkClassName}
-                  to={"/mediation"}
-                  onClick={handleMenuCloseClick}
-                >
-                  Mediation diensten
-                </NavLink>
-              </li>
-            </ul>
-          </li>
-
-          <li>
-            <NavLink className={getNavLinkClassName} to={"/huizen"}>
-              Huizen
-            </NavLink>
-          </li>
+            )
+          )}
         </ul>
       </div>
 
@@ -160,12 +206,14 @@ export const Navbar = ({ inverted }: { inverted: boolean }) => {
           className={`btn btn-outline font-normal border-0 ${
             inverted ? "text-white" : "text-mocha-900"
           }`}
+          aria-label="Bel 0622 691573"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
             fill="currentColor"
+            aria-hidden="true"
           >
             <g clipPath="url(#a)">
               <path

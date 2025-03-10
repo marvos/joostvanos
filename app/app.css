@@ -202,3 +202,17 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+.btn-secondary {
+  @apply bg-mocha-600 text-white;
+}
+.btn-secondary:hover {
+}
+.btn-secondary:focus {
+}
+.btn-secondary:active {
+}
+.btn-secondary:disabled {
+}
+.btn-secondary:focus-visible {
+  @apply ring-mocha-500;
+}
