@@ -4,9 +4,10 @@ compatibility_date = "2024-11-18"
 main = "./build/server/index.js"
 assets = { directory = "./build/client/" }
 
-
 [vars]
 API_JOOST="https://api.joostvanos.nl"
+ADMIN_PASSWORD="amsterdam2025"
+ADMIN_USERNAME="joost"
 VALUE_FROM_CLOUDFLARE = "Hello from Cloudflare WRANGLER"
 # wrangler.toml (wrangler v3.88.0^)
 [observability.logs]
