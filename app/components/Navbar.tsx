@@ -41,6 +41,7 @@ const navigationItems = [
     path: "/huizen",
     isDropdown: false,
   },
+
 ];
 
 /**
