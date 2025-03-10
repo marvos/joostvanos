@@ -28,10 +28,10 @@ export function JvoFooter() {
           external: true,
         },
         { label: "Over Joost van Os", url: "/over-joost-van-os" },
-        {
-          label: "Beoordelingen",
-          url: "/beoordelingen",
-        },
+        // {
+        //   label: "Beoordelingen",
+        //   url: "/beoordelingen",
+        // },
       ],
     },
   ];
