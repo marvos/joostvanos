@@ -169,20 +169,28 @@ export default function VastgoedMediation({
               Vanzelfsprekend maakt men bij aan/verkoop van vastgoed gebruik van
               de diensten van een makelaar. Veelal wordt er ook een makelaar
               ingeschakeld bij andere vastgoed vraagstukken echter neemt de
-              makelaar per definitie een partijdig standpunt in (hij/zij
-              behartigt immers altijd de belangen van of de aankopende of de
-              verkopende partij). Dit gegeven kan ertoe leiden dat vastgoed
-              vraagstukken verzanden in vastgoed conflicten. Partijen zien dan
-              alleen nog hun eigen belang en zijn daardoor niet meer gefocust op
-              het oplossen van het conflict waardoor het conflict kan escaleren
+              makelaar per definitie een{" "}
+              <span className="font-semibold">partijdig standpunt</span> in
+              (hij/zij behartigt immers altijd de belangen van of de aankopende
+              of de verkopende partij). Dit gegeven kan ertoe leiden dat
+              vastgoed vraagstukken verzanden in vastgoed conflicten. Partijen
+              zien dan alleen nog hun{" "}
+              <span className="font-semibold">eigen belang</span> en zijn
+              daardoor niet meer gefocust op het oplossen van het conflict
+              waardoor het conflict kan{" "}
+              <span className="font-semibold">escaleren</span>
               met alle (juridische) gevolgen van dien.
             </p>
             <p className="mt-4">
-              Mediation is een effectieve manier om deze conflicten op te
-              lossen. Het mediationtraject biedt structuur waarmee partijen
-              zelf, onder begeleiding van een neutrale mediator, tot een
+              Mediation is een{" "}
+              <span className="font-semibold">effectieve manier</span> om deze
+              conflicten op te lossen. Het mediationtraject biedt{" "}
+              <span className="font-semibold">structuur</span> waarmee partijen
+              zelf, onder begeleiding van een{" "}
+              <span className="font-semibold">neutrale mediator</span>, tot een
               oplossing komen. Dit proces voorkomt niet alleen juridische
-              stappen, maar verbetert ook de communicatie tussen betrokkenen.
+              stappen, maar <span className="font-semibold">verbetert</span> ook
+              de communicatie tussen betrokkenen.
             </p>
           </section>
 
@@ -199,26 +207,36 @@ export default function VastgoedMediation({
             </h2>
             <p>
               Gedurende het traject doorlopen de partijen verschillende fasen,
-              van een eerste intake tot het vastleggen van een bindende
-              overeenkomst. De mediator speelt in elke fase een cruciale rol
-              door het faciliteren van gesprekken en het bieden van een veilige
-              omgeving waarin partijen hun standpunten kunnen delen.
+              van een eerste intake tot het vastleggen van een{" "}
+              <span className="font-semibold">bindende overeenkomst</span>. De
+              mediator speelt in elke fase een{" "}
+              <span className="font-semibold">cruciale rol</span>
+              door het faciliteren van gesprekken en het bieden van een{" "}
+              <span className="font-semibold">veilige omgeving</span> waarin
+              partijen hun standpunten kunnen delen.
             </p>
             <p className="mt-4">
-              Mediation is doorgaans sneller en minder kostbaar dan een
+              Mediation is doorgaans{" "}
+              <span className="font-semibold">sneller</span> en{" "}
+              <span className="font-semibold">minder kostbaar</span> dan een
               juridische procedure, wat het een aantrekkelijke optie maakt. Een
               goede voorbereiding verhoogt de kans op succes. Hoe duidelijker
               partijen hun doelen formuleren en het proces begrijpen, hoe
               effectiever de mediation zal verlopen.
             </p>
             <p className="mt-4">
-              Mediation is een vorm van alternatieve geschiloplossing waarbij
-              samenwerking en communicatie centraal staan. In plaats van een
-              conflict te laten juridiseren of voor de rechter uit te vechten,
-              zoeken de partijen onder begeleiding van een mediator naar een
-              gezamenlijke oplossing. Dit proces is nuttig bij geschillen bij
-              aan/verkoop, huurgeschillen, VvE kwesties, onenigheid of de waarde
-              van vastgoed etc.
+              Mediation is een vorm van{" "}
+              <span className="font-semibold">
+                alternatieve geschiloplossing
+              </span>{" "}
+              waarbij samenwerking en communicatie centraal staan. In plaats van
+              een conflict te laten juridiseren of voor de rechter uit te
+              vechten, zoeken de partijen onder begeleiding van een mediator
+              naar een
+              <span className="font-semibold"> gezamenlijke oplossing</span>.
+              Dit proces is nuttig bij geschillen bij aan/verkoop,
+              huurgeschillen, VvE kwesties, onenigheid of de waarde van vastgoed
+              etc.
             </p>
           </section>
 
@@ -230,18 +248,22 @@ export default function VastgoedMediation({
             </h3>
             <ul className="flex flex-col gap-2 my-4">
               <BenefitItem title="Snel en kostenefficiënt:">
-                Mediation kan vaak binnen enkele sessies worden afgerond, wat
-                kosten en tijd bespaart.
+                Mediation kan vaak binnen{" "}
+                <span className="font-semibold">enkele sessies</span> worden
+                afgerond, wat kosten en tijd bespaart.
               </BenefitItem>
               <BenefitItem title="Behouden van relaties:">
                 Omdat de focus ligt op samenwerking, blijven relaties tussen
-                partijen vaak beter intact. Dit is vooral van belang in
-                situaties waar de partijen ook na het conflict samen verder
-                moeten zoals bij huurgeschillen.
+                partijen vaak{" "}
+                <span className="font-semibold">beter intact</span>. Dit is
+                vooral van belang in situaties waar de partijen ook na het
+                conflict samen verder moeten zoals bij huurgeschillen.
               </BenefitItem>
               <BenefitItem title="Flexibiliteit:">
-                Het mediationproces is flexibel en kan worden aangepast aan de
-                behoeften van de partijen, wat zorgt voor een oplossing op maat.
+                Het mediationproces is{" "}
+                <span className="font-semibold">flexibel</span> en kan worden
+                aangepast aan de behoeften van de partijen, wat zorgt voor een{" "}
+                <span className="font-semibold">oplossing op maat</span>.
               </BenefitItem>
             </ul>
           </section>
@@ -252,42 +274,56 @@ export default function VastgoedMediation({
               Fases van het mediationproces
             </h3>
             <p>
-              Een goede voorbereiding vergroot de kans op succes bij mediation.
-              Het is belangrijk dat alle partijen hun doelen duidelijk
-              formuleren en de relevante documentatie voorbereiden. Tijdens de
-              pre-mediation fase verzamelt de mediator informatie en stelt een
-              mediationovereenkomst op. Hierin worden de spelregels voor het
-              traject vastgelegd.
+              Een <span className="font-semibold">goede voorbereiding</span>{" "}
+              vergroot de kans op succes bij mediation. Het is belangrijk dat
+              alle partijen hun doelen duidelijk formuleren en de relevante
+              documentatie voorbereiden. Tijdens de pre-mediation fase verzamelt
+              de mediator informatie en stelt een
+              <span className="font-semibold"> mediationovereenkomst</span> op.
+              Hierin worden de spelregels voor het traject vastgelegd.
             </p>
             <p className="mt-4">
-              Ook bespreekt de mediator vertrouwelijkheid en gedragsregels,
-              zodat iedereen zich veilig voelt om vrijuit te spreken.
+              Ook bespreekt de mediator{" "}
+              <span className="font-semibold">vertrouwelijkheid</span> en
+              gedragsregels, zodat iedereen zich veilig voelt om vrijuit te
+              spreken.
             </p>
             <p className="mt-4">
               De mediation start met een eerste sessie waarin beide partijen hun
-              standpunten toelichten. Dit helpt om misverstanden direct op te
+              standpunten toelichten. Dit helpt om{" "}
+              <span className="font-semibold">misverstanden</span> direct op te
               helderen en de basis te leggen voor constructieve gesprekken.
             </p>
             <p className="mt-4">
               Het mediationproces bestaat uit verschillende fasen, elk gericht
-              op het (weder)opbouwen van vertrouwen en het zoeken naar een
-              oplossing.
+              op het{" "}
+              <span className="font-semibold">
+                (weder)opbouwen van vertrouwen
+              </span>{" "}
+              en het zoeken naar een oplossing.
             </p>
             <p className="mt-4">
-              De intakefase biedt de mogelijkheid voor beide partijen om
-              individueel en vertrouwelijk hun standpunten te delen. De mediator
-              benadrukt hierbij het belang van vertrouwelijkheid, wat zorgt voor
-              een open en veilige communicatie.
+              De <span className="font-semibold">intakefase</span> biedt de
+              mogelijkheid voor beide partijen om individueel en vertrouwelijk
+              hun standpunten te delen. De mediator benadrukt hierbij het belang
+              van vertrouwelijkheid, wat zorgt voor een{" "}
+              <span className="font-semibold">
+                open en veilige communicatie
+              </span>
+              .
             </p>
             <p className="mt-4">
-              In de caucus-sessies, oftewel individuele gesprekken met de
-              mediator, kunnen partijen hun zorgen en behoeften in vertrouwen
-              bespreken. Dit stelt de mediator in staat om mogelijke blokkades
-              in het proces te identificeren en te werken aan
-              maatwerkoplossingen. Na de individuele gesprekken volgt een
-              gezamenlijke afspraak. De mediator helpt de partijen bij het
-              zoeken naar wederzijds acceptabele oplossingen en moedigt hen aan
-              om compromissen te sluiten waar mogelijk.
+              In de <span className="font-semibold">caucus-sessies</span>,
+              oftewel individuele gesprekken met de mediator, kunnen partijen
+              hun zorgen en behoeften in vertrouwen bespreken. Dit stelt de
+              mediator in staat om mogelijke blokkades in het proces te
+              identificeren en te werken aan maatwerkoplossingen. Na de
+              individuele gesprekken volgt een
+              <span className="font-semibold"> gezamenlijke afspraak</span>. De
+              mediator helpt de partijen bij het zoeken naar wederzijds
+              acceptabele oplossingen en moedigt hen aan om{" "}
+              <span className="font-semibold">compromissen</span> te sluiten
+              waar mogelijk.
             </p>
           </section>
 
@@ -303,16 +339,24 @@ export default function VastgoedMediation({
               De rol van de mediator
             </h3>
             <p>
-              De mediator speelt een sleutelrol in het mediationproces. Naast
-              het begeleiden van de gesprekken, is het opbouwen van vertrouwen
+              De mediator speelt een{" "}
+              <span className="font-semibold">sleutelrol</span> in het
+              mediationproces. Naast het begeleiden van de gesprekken, is het{" "}
+              <span className="font-semibold">opbouwen van vertrouwen</span>
               en het waarborgen van neutraliteit essentieel. De mediator zorgt
-              ervoor dat beide partijen zich gehoord en gerespecteerd voelen.
-              Neutraliteit is hierbij van groot belang; de mediator neemt geen
-              standpunt in, maar faciliteert het proces zodat de partijen samen
-              tot een oplossing kunnen komen. De mediator helpt misverstanden te
-              voorkomen door het gesprek helder te houden en de belangrijkste
-              punten samen te vatten. Dit stelt partijen in staat om zich
-              volledig te concentreren op het vinden van een oplossing.
+              ervoor dat beide partijen zich{" "}
+              <span className="font-semibold">
+                gehoord en gerespecteerd
+              </span>{" "}
+              voelen.
+              <span className="font-semibold"> Neutraliteit</span> is hierbij
+              van groot belang; de mediator neemt geen standpunt in, maar
+              faciliteert het proces zodat de partijen samen tot een oplossing
+              kunnen komen. De mediator helpt misverstanden te voorkomen door
+              het gesprek helder te houden en de belangrijkste punten{" "}
+              <span className="font-semibold">samen te vatten</span>. Dit stelt
+              partijen in staat om zich volledig te concentreren op het vinden
+              van een oplossing.
             </p>
           </section>
 
@@ -332,16 +376,25 @@ export default function VastgoedMediation({
               gevolgd om de gemaakte afspraken na te komen en de resultaten te
               evalueren. De afspraken die tijdens de mediation worden gemaakt,
               moeten goed worden vastgelegd in een bindend document oftewel de
-              vaststellingsovereenkomst (VSO). Het naleven van deze afspraken is
-              essentieel voor het succes van de mediation. De mediator helpt om
-              alles duidelijk op papier te zetten.
+              <span className="font-semibold">
+                {" "}
+                vaststellingsovereenkomst (VSO)
+              </span>
+              . Het <span className="font-semibold">naleven</span> van deze
+              afspraken is essentieel voor het succes van de mediation. De
+              mediator helpt om alles duidelijk op papier te zetten.
             </p>
             <p className="mt-4">
-              Met mediation kunnen conflicten snel, effectief en kostenefficiënt
+              Met mediation kunnen conflicten{" "}
+              <span className="font-semibold">snel</span>,{" "}
+              <span className="font-semibold">effectief</span> en{" "}
+              <span className="font-semibold">kostenefficiënt</span>
               worden opgelost, zonder de tussenkomst van een jurist of rechter.
-              Joost van Os Makelaardij & Mediation biedt mediation op maat,
-              gericht op het vinden van duurzame oplossingen die voor alle
-              partijen werken.
+              Joost van Os Makelaardij & Mediation biedt{" "}
+              <span className="font-semibold">mediation op maat</span>, gericht
+              op het vinden van{" "}
+              <span className="font-semibold">duurzame oplossingen</span> die
+              voor alle partijen werken.
             </p>
           </section>
 
@@ -351,13 +404,15 @@ export default function VastgoedMediation({
               Waarom kiezen voor Joost van Os Makelaardij & Mediation?
             </h2>
             <p className="mt-4">
-              Met persoonlijke aandacht en neutrale begeleiding bieden wij
-              volledige ondersteuning bij het oplossen van alle mogelijke
-              vastgoedconflicten. Wij geloven in maatwerk. Iedere situatie is
-              uniek en wij passen onze aanpak aan op uw specifieke behoeften.
+              Met <span className="font-semibold">persoonlijke aandacht</span>{" "}
+              en <span className="font-semibold">neutrale begeleiding</span>{" "}
+              bieden wij volledige ondersteuning bij het oplossen van alle
+              mogelijke vastgoedconflicten. Wij geloven in{" "}
+              <span className="font-semibold">maatwerk</span>. Iedere situatie
+              is uniek en wij passen onze aanpak aan op uw specifieke behoeften.
               Ons doel is om niet alleen het huidige conflict op te lossen, maar
-              ook om duurzame oplossingen te creëren die toekomstige problemen
-              helpen voorkomen.
+              ook om <span className="font-semibold">duurzame oplossingen</span>{" "}
+              te creëren die toekomstige problemen helpen voorkomen.
             </p>
           </section>
 
